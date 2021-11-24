@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+.mat-card {
+    width: 348px;
+}
+
+.card-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    background: #fafafa
+}
+
+.mat-card-image {
+    background: #3f51b5;
+    display: flex;
+    place-content: center;
+    align-items: center;
+}
+
+.mat-card-content{
+    padding: 8px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.email-pass-wrapper {
+    margin-bottom: 16px;
+}
+
+.remember-me-forgot-pass-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    padding: 24px;
+}
+
+.caption {
+    font: 400 12px/20px Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #000000de;
+}
+
+.caption-1 {
+    font: 400 14px/20px Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #000000de;
+}
+
+.secondary-text {
+    color: #0000008a;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
