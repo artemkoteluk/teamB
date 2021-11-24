@@ -5,6 +5,30 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NotifierModule } from 'angular-notifier';
+import {RouterModule, Routes} from "@angular/router";
+import {MainComponent} from "./main/main.component";
+
+const routes: Routes=[
+  {
+    path:'main',
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
+  },
+  // {
+  //   path:'login',
+  //   loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+  // },
+  // {
+  //   path:'register',
+  //   loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
+  //
+  // },
+  {
+    path:'**',
+    redirectTo:'',
+    pathMatch:'full'
+
+  }
+]
 
 @NgModule({
   declarations: [
@@ -16,7 +40,8 @@ import { NotifierModule } from 'angular-notifier';
     NotifierModule.withConfig({
       // Custom options in here
     }),
-  ],
+    RouterModule.forRoot(routes),
+    BrowserModule],
   providers: [],
   bootstrap: [AppComponent]
 })
