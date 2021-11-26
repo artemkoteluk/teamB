@@ -48,3 +48,6 @@ mat-divider
   margin-bottom: 16px;
   background-color: white;
 }
+.container {
+  padding: 50px;
+}
