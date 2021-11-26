@@ -6,6 +6,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatListModule} from "@angular/material/list";
 
 const routes: Routes = [
   {
@@ -26,15 +27,16 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MainComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatListModule,
 
-  ]
+    ]
 })
 export class MainModule {
 }

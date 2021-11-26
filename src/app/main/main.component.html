@@ -1,85 +1,89 @@
+<div class="main-container">
+
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" opened>
 
-    <img src="assets/unnamed.png" alt="">
-    <h4 class="name">David Smith </h4>
-    <p>david.smith@example.com</p>
-
-
-    <mat-divider></mat-divider>
-    <button mat-button class="menu-button" routerLinkActive="active" routerLink="menu">
-      <mat-icon> dashboard</mat-icon>
-      <span>Dashboard</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>assignment</mat-icon>
-      <span>all-in-one Table</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>date_range</mat-icon>
-      <span>Calendar</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>move_to_inbox</mat-icon>
-      <span>Inbox</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon> chat</mat-icon>
-      <span>Chat</span>
-    </button>
-    <mat-divider></mat-divider>
+      <img src="assets/unnamed.png" alt="">
+      <h4 class="name">David Smith </h4>
+      <p>david.smith@example.com</p>
 
 
-    <button mat-button class="menu-button" >
-      <mat-icon>layers</mat-icon>
-      <span>Components</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>list</mat-icon>
-      <span>Forms</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>mouse</mat-icon>
-      <span>Drag & Drop</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>format_shapes</mat-icon>
-      <span>WYSIWYG Editor</span>
-    </button>
-    <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLinkActive="active" routerLink="/main/dashboard">
+        <mat-icon mat-list-icon> dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button class="menu-button" routerLinkActive="active" routerLink="/main/table">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <span>all-in-one Table</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>date_range</mat-icon>
+        <span>Calendar</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>move_to_inbox</mat-icon>
+        <span>Inbox</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon> chat</mat-icon>
+        <span>Chat</span>
+      </button>
+      <mat-divider></mat-divider>
 
 
-    <button mat-button class="menu-button" >
-      <mat-icon> lock</mat-icon>
-      <span>Authentication</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>view_quilt</mat-icon>
-      <span>Page Layouts</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>access_time</mat-icon>
-      <span>Coming Soon</span>
-    </button>
-    <button mat-button class="menu-button" >
-      <mat-icon>tab</mat-icon>
-      <span>Blank</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon> map</mat-icon>
-      <span>Maps</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon> star</mat-icon>
-      <span>Material Icons</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon> reorder</mat-icon>
-      <span>Multi-Level Menu</span>
-    </button>
+      <button mat-button class="menu-button" >
+        <mat-icon mat-list-icon>layers</mat-icon>
+        <span>Components</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span>Forms</span>
+      </button>
+      <button mat-button class="menu-button" routerLinkActive="active" routerLink="/main/dragdrop">
+        <mat-icon mat-list-icon>mouse</mat-icon>
+        <span>Drag & Drop</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>format_shapes</mat-icon>
+        <span>WYSIWYG Editor</span>
+      </button>
+      <mat-divider></mat-divider>
 
 
-  </mat-sidenav>
+      <button mat-button class="menu-button" >
+        <mat-icon mat-list-icon> lock</mat-icon>
+        <span>Authentication</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>view_quilt</mat-icon>
+        <span>Page Layouts</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon>access_time</mat-icon>
+        <span>Coming Soon</span>
+      </button>
+      <button mat-button class="menu-button" >
+        <mat-icon mat-list-icon>tab</mat-icon>
+        <span>Blank</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon> map</mat-icon>
+        <span>Maps</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon> star</mat-icon>
+        <span>Material Icons</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon mat-list-icon> reorder</mat-icon>
+        <span>Multi-Level Menu</span>
+      </button>
+    </mat-sidenav>
 
-</mat-sidenav-container>
+ </mat-sidenav-container>
 
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

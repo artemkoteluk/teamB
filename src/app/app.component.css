@@ -1,53 +1,5 @@
-.mat-toolbar
-{
-  background-color: #1e2940;
-  color: white;
-
-}
-.mat-sidenav
-{
-  margin: 16px;
-  width: 200px;
-  border-right: none;
-  background-color: #171940;
-  color: white;
-  border-radius: 10px;
-  text-align: center;
-}
-.content{
-  margin: 16px ;
-  margin-left: 32px;
-  height: calc(100vh - 98px);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  color: #e5b584;
-}
-.menu-button
-{
-  background-color: #171940;
-  width: 100%;
+.container{
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1rem;
-  color: white;
-
-}
-
-.mat-sidenav-container{
-  height: calc(100vh - 65px);
-}
-mat-icon{
-  margin-right: 8px;
-}
-mat-divider
-{
-  margin-top: 16px;
-  margin-bottom: 16px;
-  background-color: white;
-}
-.container {
-  padding: 50px;
+  flex-direction: column;
 }
