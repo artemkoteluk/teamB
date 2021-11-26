@@ -7,8 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotifierModule } from 'angular-notifier';
 import {RouterModule, Routes} from "@angular/router";
 import {MainComponent} from "./main/main.component";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes=[
+  {
+    path:'',
+    redirectTo:'main',
+    pathMatch:'full'
+  },
   {
     path:'main',
     loadChildren: () => import('./main/main.module').then(m => m.MainModule),
@@ -30,6 +36,7 @@ const routes: Routes=[
   }
 ]
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -41,7 +48,9 @@ const routes: Routes=[
       // Custom options in here
     }),
     RouterModule.forRoot(routes),
-    BrowserModule],
+    CommonModule
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
