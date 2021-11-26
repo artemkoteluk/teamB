@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Customer</h1>
+<div mat-dialog-content style="display: flex; flex-wrap: wrap; justify-content: space-between">
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="data.FirstName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="data.LastName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="flex: 1 0 100%">
+    <mat-label>Street</mat-label>
+    <input matInput [(ngModel)]="data.Street">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <input matInput [(ngModel)]="data.City">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Zipcode</mat-label>
+    <input matInput [(ngModel)]="data.Zipcode">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="flex: 1 0 100%">
+    <mat-label>Phone Number</mat-label>
+    <input matInput [(ngModel)]="data.Phone">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="saveUser()" style="float: right">Save Customer</button>
+</div>

@@ -1,0 +1,90 @@
+<div class="example-container mat-elevation-z8">
+
+  <div class="custom-table-header">
+    <div><h3>Customers</h3></div>
+    <mat-form-field appearance="standard">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+    </mat-form-field>
+    <button class="iconBtn" mat-button [matMenuTriggerFor]="menu"><mat-icon aria-hidden="false">reorder</mat-icon></button>
+    <button class="iconBtn" mat-button (click)="openAddDialog()"><mat-icon aria-hidden="false">add</mat-icon></button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.checkbox">Checkbox</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.image">Image</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.FullName">Full Name</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.FirstName">First Name</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.LastName">Last Name</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.Street">Street</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.Zipcode">Zipcode</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.City">City</mat-checkbox></div>
+      <div mat-menu-item (click)="$event.stopPropagation();"><mat-checkbox class="example-margin" [(ngModel)]="isDisplayed.Phone">Phone</mat-checkbox></div>
+    </mat-menu>
+  </div>
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="checkbox">
+      <mat-header-cell class="checkbox-cell {{isDisplayed.checkbox?'':'collapsed'}}" *matHeaderCellDef>
+        <mat-checkbox [(ngModel)]="allSelected" (change)="allCheckboxToggle()"></mat-checkbox>
+      </mat-header-cell>
+      <mat-cell class="checkbox-cell {{isDisplayed.checkbox?'':'collapsed'}}" *matCellDef="let row">
+        <mat-checkbox [(ngModel)]="row.checkbox" (click)="$event.stopPropagation();"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <mat-header-cell class="image-cell {{isDisplayed.image?'':'collapsed'}}" *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="image-cell {{isDisplayed.image?'':'collapsed'}}" *matCellDef="let row"> <img src="assets/images/{{row.image}}"> </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="FullName">
+      <mat-header-cell class="{{isDisplayed.FullName?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell class="{{isDisplayed.FullName?'':'collapsed'}}" *matCellDef="let row"> {{row.FullName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="FirstName">
+      <mat-header-cell class="{{isDisplayed.FirstName?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+      <mat-cell class="{{isDisplayed.FirstName?'':'collapsed'}}" *matCellDef="let row"> {{row.FirstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="LastName">
+      <mat-header-cell class="{{isDisplayed.LastName?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+      <mat-cell class="{{isDisplayed.LastName?'':'collapsed'}}" *matCellDef="let row"> {{row.LastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Street">
+      <mat-header-cell class="{{isDisplayed.Street?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> Street </mat-header-cell>
+      <mat-cell class="{{isDisplayed.Street?'':'collapsed'}}" *matCellDef="let row" [style.color]="row.color"> {{row.Street}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Zipcode">
+      <mat-header-cell class="{{isDisplayed.Zipcode?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> Zipcode </mat-header-cell>
+      <mat-cell class="{{isDisplayed.Zipcode?'':'collapsed'}}" *matCellDef="let row" [style.color]="row.color"> {{row.Zipcode}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="City">
+      <mat-header-cell class="{{isDisplayed.City?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+      <mat-cell class="{{isDisplayed.City?'':'collapsed'}}" *matCellDef="let row" [style.color]="row.color"> {{row.City}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone">
+      <mat-header-cell class="{{isDisplayed.Phone?'':'collapsed'}}" *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+      <mat-cell class="{{isDisplayed.Phone?'':'collapsed'}}" *matCellDef="let row" [style.color]="row.color"> {{row.Phone}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell class="actions-cell {{isDisplayed.Actions?'':'collapsed'}}" *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="actions-cell {{isDisplayed.Actions?'':'collapsed'}}" *matCellDef="let row" [style.color]="row.color"> <button class="iconBtn" (click)="$event.stopPropagation(); selectUser(row.id);" mat-button [matMenuTriggerFor]="actions"><mat-icon aria-hidden="false">more_horiz</mat-icon></button> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectUser(row.id); openEditDialog();">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[4]"></mat-paginator>
+</div>
+
+<mat-menu #actions="matMenu" xPosition="before">
+  <button mat-menu-item (click)="openEditDialog()">Edit</button>
+  <button mat-menu-item (click)="deleteUser()">Delete</button>
+</mat-menu>
+

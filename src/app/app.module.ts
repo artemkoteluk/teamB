@@ -1,22 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { NotifierModule } from 'angular-notifier';
+import {NotifierModule} from 'angular-notifier';
 import {RouterModule, Routes} from "@angular/router";
-import {MainComponent} from "./main/main.component";
-import {CommonModule} from "@angular/common";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {Overlay} from "@angular/cdk/overlay";
 
-const routes: Routes=[
+const routes: Routes = [
   {
-    path:'',
-    redirectTo:'main',
-    pathMatch:'full'
-  },
-  {
-    path:'main',
+    path: 'main',
     loadChildren: () => import('./main/main.module').then(m => m.MainModule),
   },
   // {
@@ -29,9 +24,15 @@ const routes: Routes=[
   //
   // },
   {
-    path:'**',
-    redirectTo:'',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
+
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
 
   }
 ]
@@ -44,14 +45,14 @@ const routes: Routes=[
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     NotifierModule.withConfig({
       // Custom options in here
     }),
     RouterModule.forRoot(routes),
-    CommonModule
-
   ],
-  providers: [],
+  providers: [MatDialog, Overlay],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
