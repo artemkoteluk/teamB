@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('../table/table.module').then(m => m.TableModule)
       },
       {
+        path: 'dragdrop',
+        loadChildren: () => import('../dragdrop/dragdrop.module').then(m => m.DragdropModule)
+      },
+      {
         path:'chat',
         loadChildren: () => import('../chat/chat.module').then(m => m.ChatModule),
       },

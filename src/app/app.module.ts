@@ -8,6 +8,7 @@ import {NotifierModule} from 'angular-notifier';
 import {RouterModule, Routes} from "@angular/router";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
+import { DragdropComponent } from './dragdrop/dragdrop.component';
 
 const routes: Routes = [
   {
