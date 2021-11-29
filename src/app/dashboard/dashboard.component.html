@@ -1,0 +1,398 @@
+<div class="wrapper">
+  <div class="group-1">
+    <div class="group-1-1">
+      <div class="group-1-1-1">
+        <mat-card class="dashboard-card total-sales">
+          <mat-card-header>
+            <mat-card-title>Total Sales</mat-card-title>
+            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon> 16.3% compared to last month</mat-card-subtitle>
+          </mat-card-header>
+
+          <div  class="card-content">
+            <div #containerRefTotalSales class="ngx-wrapper">
+
+              <ngx-charts-bar-vertical
+                [view]="[containerRefTotalSales.offsetWidth, containerRefTotalSales.offsetHeight]"
+                [scheme]="colorScheme"
+                [results]="single"
+
+              >
+              </ngx-charts-bar-vertical>
+            </div>
+          </div>
+        </mat-card>
+
+      </div>
+      <div class="group-1-1-2">
+        <mat-card class="dashboard-card visits">
+          <mat-card-header>
+            <mat-card-title>Visits</mat-card-title>
+            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon>  42.5% compared to last month</mat-card-subtitle>
+
+          </mat-card-header>
+          <div class="card-content">
+            <div  #containerRefVisits class="ngx-wrapper">
+
+
+              <ngx-charts-line-chart
+                [view]="[containerRefVisits.offsetWidth, containerRefVisits.offsetHeight]"
+                [scheme]="colorScheme"
+                [results]="multi"
+
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </mat-card>
+
+      </div>
+    </div>
+    <div class="group-1-2">
+      <div class="group-1-2-1">
+        <mat-card class="dashboard-card total-clicks">
+          <mat-card-header>
+            <mat-card-title>Total Clicks</mat-card-title>
+            <mat-card-subtitle><mat-icon>arrow_downward</mat-icon>-6.1% compared to last month</mat-card-subtitle>
+
+          </mat-card-header>
+          <div  class="card-content">
+            <div #containerRefTotalClicks class="ngx-wrapper">
+
+
+              <ngx-charts-line-chart
+                [view]="[containerRefTotalClicks.offsetWidth, containerRefTotalClicks.offsetHeight]"
+                [scheme]="colorScheme"
+                [results]="multi"
+                [curve]="curve"
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </mat-card>
+
+      </div>
+      <div class="group-1-2-2">
+        <mat-card class="dashboard-card conversions">
+          <mat-card-header>
+            <mat-card-title>Conversions</mat-card-title>
+            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon>10.4% compared to last month</mat-card-subtitle>
+          </mat-card-header>
+          <div  class="card-content">
+            <div #containerRefConversions class="ngx-wrapper">
+
+
+              <ngx-charts-line-chart
+                [view]="[containerRefConversions.offsetWidth, containerRefConversions.offsetHeight]"
+                [scheme]="colorScheme"
+                [results]="multi"
+
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+  <div class="group-2">
+    <div class="group-2-1">
+      <mat-card  class="dashboard-card usage ">
+        <div class="usage-button-container">
+          <button mat-button class="usage-button active">
+            <div class="usage-name">Users</div>
+            <div class="usage-number">694</div>
+            <div class="usage-percentage up">
+              <mat-icon>trending_up</mat-icon>
+              5.95%
+            </div>
+
+          </button>
+          <button mat-button class="usage-button">
+            <div class="usage-name">Sessions</div>
+            <div class="usage-number">789</div>
+            <div class="usage-percentage up">
+              <mat-icon>trending_up</mat-icon>
+              11.6%
+            </div>
+
+          </button>
+          <button mat-button class="usage-button">
+            <div class="usage-name">Bounce Rate</div>
+            <div class="usage-number">8.44%</div>
+            <div class="usage-percentage down">
+              <mat-icon>trending_down</mat-icon>
+              -20.14%
+            </div>
+
+          </button>
+          <button mat-button class="usage-button">
+            <div class="usage-name">Session Duration</div>
+            <div class="usage-number">113 sec</div>
+            <div class="usage-percentage up">
+              <mat-icon>trending_up</mat-icon>
+              6.62%
+            </div>
+
+          </button>
+        </div>
+
+        <div  class="card-content usage-chart">
+          <div #containerRefUse class="ngx-wrapper">
+
+            <ngx-charts-line-chart
+              [view]="[containerRefUse.offsetWidth, containerRefUse.offsetHeight]"
+              [scheme]="colorSchemeUse"
+              [results]="use"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [autoScale]="autoScale"
+
+
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+    <div class="group-2-2">
+      <div class="group-2-2-1">
+        <div class="group-2-2-1-1">
+          <mat-card class="dashboard-card sales-summary ">
+            <mat-card-header>
+              <mat-card-title>Sales Summary</mat-card-title>
+              <mat-card-subtitle>Compare Sales by Time</mat-card-subtitle>
+            </mat-card-header>
+            <div class="sales-summary-infos">
+              <div class="sales-summary-info">
+                <div class="sales-summary-info-name">MONTHLY SALES</div>
+                <div class="sales-summary-info-number">473
+                  <mat-icon class="up">trending_up</mat-icon>
+                </div>
+              </div>
+              <div class="sales-summary-info">
+                <div class="sales-summary-info-name">SALES TODAY</div>
+                <div class="sales-summary-info-number">46
+                  <mat-icon class="down">trending_down</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div  class="card-content">
+              <div #containerRefSalesSummary class="ngx-wrapper">
+                <ngx-charts-area-chart-stacked
+                  [view]="[containerRefSalesSummary.offsetWidth, containerRefSalesSummary.offsetHeight]"
+                  [scheme]="colorSchemeSalesSummary"
+                  [results]="salesSummary"
+                  [curve]="curve"
+
+                >
+                </ngx-charts-area-chart-stacked>
+              </div>
+            </div>
+
+          </mat-card>
+
+        </div>
+        <div class="group-2-2-1-2">
+          <mat-card class="dashboard-card customers ">
+            <div class="card-content">
+              <div>
+                <div class="customer-number">234</div>
+                <div>Customers</div>
+              </div>
+              <mat-icon class="customer-icon ">people</mat-icon>
+
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <div class="group-2-2-2">
+        <mat-card class="dashboard-card active-users">
+          <mat-card-header>
+            <mat-card-title>
+              <div class="active-users-name">Active Users right now</div>
+              <div class="active-users-number">69</div>
+
+            </mat-card-title>
+
+          </mat-card-header>
+
+          <div class="card-content">
+            <div>Page views per minute</div>
+            <mat-divider inset></mat-divider>
+
+            <div #containerRefActiveUsers class="ngx-wrapper">
+
+              <ngx-charts-bar-vertical
+                [view]="[containerRefActiveUsers.offsetWidth, containerRefActiveUsers.offsetHeight]"
+                [scheme]="colorSchemeActiveUsers"
+                [results]="single"
+
+              >
+              </ngx-charts-bar-vertical>
+
+            </div>
+            <div>Top Active Pages</div>
+            <mat-divider inset></mat-divider>
+            <div class="active-pages-scroller">
+              <div class="active-pages">
+                <div class="active-page" *ngFor="let page of activePages">{{page}}</div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+  <div class="group-3">
+    <div class="group-3-1">
+      <div class="group-3-1-1">
+        <mat-card class="dashboard-card sales-by-country">
+          <mat-card-header>
+            <mat-card-title>Sales by country</mat-card-title>
+            <mat-card-subtitle>Top 3 countries sold 34% more items this month</mat-card-subtitle>
+          </mat-card-header>
+
+          <div  class="card-content">
+            <div #containerRefSalesByCountry class="ngx-wrapper">
+
+              <ngx-charts-advanced-pie-chart
+                [view]="[containerRefSalesByCountry.offsetWidth, containerRefSalesByCountry.offsetHeight]"
+                [scheme]="colorSchemeSales"
+                [results]="salesByCountry"
+
+              >
+              </ngx-charts-advanced-pie-chart>
+            </div>
+
+          </div>
+        </mat-card>
+
+      </div>
+      <div class="group-3-1-2">
+        <div class="group-3-1-2-1">
+          <mat-card class="dashboard-card top-categories">
+            <mat-card-header>
+              <mat-card-title>Top categories</mat-card-title>
+              <mat-card-subtitle>Compare Sales by Category</mat-card-subtitle>
+            </mat-card-header>
+
+            <div class="card-content ">
+              <div  #containerRefTopCategories class="ngx-wrapper">
+
+                <ngx-charts-pie-chart
+                  [view]="[containerRefTopCategories.offsetWidth, containerRefTopCategories.offsetHeight]"
+                  [scheme]="colorSchemeTopCategories"
+                  [results]="topCategories"
+
+                >
+                </ngx-charts-pie-chart>
+
+              </div>
+              <mat-divider></mat-divider>
+              <div class="top-categories-stats">
+                <div class="top-categories-stat">
+                  <div class="top-categories-stat-number">1096</div>
+                  <div class="top-categories-stat-name">TOTAL SALES</div>
+                </div>
+                <mat-divider   vertical></mat-divider>
+                <div class="top-categories-stat">
+                  <div class="top-categories-stat-number">598</div>
+                  <div class="top-categories-stat-name">TOP CATEGORIES</div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="group-3-1-2-2">
+          <mat-card class="dashboard-card flex-card">
+            <mat-card-header>
+              <div mat-card-avatar class="header-image"></div>
+              <mat-card-title>Flexelniy</mat-card-title>
+              <mat-card-subtitle>Sub 1:15 films</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://c.tenor.com/tXRbGXhgFVUAAAAd/karmikkoala-karmik-flex.gif" alt="Flexelniy">
+
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+      </div>
+      <div class="group-3-1-3">
+
+        <div class="widgets-available">
+          <div class="widgets-available-name">6 more widgets available</div>
+          <button mat-raised-button color="primary">COMING SOON</button>
+        </div>
+      </div>
+    </div>
+    <div class="group-3-2">
+      <div class="group-3-2-1">
+
+        <mat-card class="dashboard-card recent-sales">
+          <mat-card-header>
+            <mat-card-title>Recent Sales</mat-card-title>
+            <mat-card-subtitle>See who bought what in realtime</mat-card-subtitle>
+          </mat-card-header>
+
+          <div class="card-content ">
+            <div class="recent-sales-table">
+              <mat-divider></mat-divider>
+              <table mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> $ Price </th>
+                  <td mat-cell *matCellDef="let row"> ${{row.price}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="timeAgo">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Time ago</th>
+                  <td mat-cell *matCellDef="let row"> {{row.timeAgo}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
+              <mat-divider></mat-divider>
+
+            </div>
+
+            <div  #containerRefRecentSales class="ngx-wrapper">
+
+              <ngx-charts-area-chart
+                [view]="[containerRefRecentSales.offsetWidth, containerRefRecentSales.offsetHeight]"
+                [scheme]="colorSchemeRecentSales"
+                [results]="recentSales"
+
+              >
+              </ngx-charts-area-chart>
+
+            </div>
+
+          </div>
+        </mat-card>
+      </div>
+      <div class="group-3-2-1">
+        <div class="dashboard-card map">&lt;mat-card&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Map
+          <br>&lt;/mat-card&gt;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
