@@ -1,0 +1,32 @@
+<div cdkDropListGroup class="dragdrop_container">
+  <mat-card class="example-card">
+    <mat-card-title>To-Do Tasks</mat-card-title>
+    <mat-card-subtitle>Simply Drag & Drop items in your order</mat-card-subtitle>
+    <mat-card-content>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box to-do-box" *ngFor="let item of todo" cdkDrag>
+          <div>{{item.task}}</div>
+          <div class="dragdrop-subtext">{{item.time}}</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-title>Done Tasks</mat-card-title>
+    <mat-card-subtitle>Drag between lists and inside lists</mat-card-subtitle>
+    <mat-card-content>
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box done-box" *ngFor="let item of done" cdkDrag>{{item.task}}<mat-icon>done</mat-icon></div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

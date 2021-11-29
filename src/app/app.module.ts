@@ -16,10 +16,13 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {Overlay} from "@angular/cdk/overlay";
+import { DragdropComponent } from './dragdrop/dragdrop.component';
 
-const routes: Routes=[
+const routes: Routes = [
   {
-    path:'main',
+    path: 'main',
     loadChildren: () => import('./main/main.module').then(m => m.MainModule),
   },
   // {
@@ -32,12 +35,19 @@ const routes: Routes=[
   //
   // },
   {
-    path:'**',
-    redirectTo:'',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
+
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
 
   }
 ]
+
 
 @NgModule({
   declarations: [
@@ -47,11 +57,12 @@ const routes: Routes=[
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
+    MatDialogModule,
     NotifierModule.withConfig({
       // Custom options in here
     }),
     RouterModule.forRoot(routes),
-    BrowserModule,
     BarChartModule,
     MatCardModule,
     MatButtonModule,
@@ -65,7 +76,8 @@ const routes: Routes=[
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [MatDialog, Overlay],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
