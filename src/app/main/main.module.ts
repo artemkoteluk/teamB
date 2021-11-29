@@ -29,10 +29,15 @@ const routes: Routes = [
         loadChildren: () => import('../chat/chat.module').then(m => m.ChatModule),
       },
       {
+        path:'dashboard',
+        loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
         path: '**',
         redirectTo: 'dashboard',
         pathMatch: 'full'
       }
+
     ]
   }
 ]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Routes} from "@angular/router";
+import {NavigationEnd, Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
 
   showbackground = false;
   location="Dashboard";
-  path="/main/dashboard"
+  path="/main/dashboard";
 
   appRoutes = [
     {
@@ -199,7 +199,16 @@ export class MainComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd)
+      {
+        if(this.router.url.toString()=='/main/dashboard')this.showbackground=false;
+        else this.showbackground=true;
+        this.path=this.router.url.toString();
+      }
+    });
+  }
   showFiller = true;
   canToggle: boolean = true;
     ngOnInit(): void {
@@ -211,17 +220,13 @@ export class MainComponent implements OnInit {
   }
 
   breadcrumbs(routeName: string, path: string) {
-      if(path!='/main/dashboard')
-      {
-        this.location=routeName;
-        this.path=path;
-        this.showbackground=true;
-      }
-      else{
-        this.location='Dashboard';
-        this.path=path;
-        this.showbackground=false;
-      }
 
+    this.router.navigate([path])
+    this.location=routeName;
+
+  }
+
+  crumbClick(i: number) {
+    if(i==1)this.router.navigate(['/main'])
   }
 }
