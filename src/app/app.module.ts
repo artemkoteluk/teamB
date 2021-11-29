@@ -7,6 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotifierModule } from 'angular-notifier';
 import {RouterModule, Routes} from "@angular/router";
 import {MainComponent} from "./main/main.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {AreaChartModule, BarChartModule, LineChartModule, NumberCardModule, PieChartModule} from "@swimlane/ngx-charts";
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 const routes: Routes=[
   {
@@ -32,7 +41,8 @@ const routes: Routes=[
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,20 @@ const routes: Routes=[
       // Custom options in here
     }),
     RouterModule.forRoot(routes),
-    BrowserModule],
+    BrowserModule,
+    BarChartModule,
+    MatCardModule,
+    MatButtonModule,
+    LineChartModule,
+    NumberCardModule,
+    PieChartModule,
+    MatIconModule,
+    AreaChartModule,
+    MatDividerModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
