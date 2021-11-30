@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
 
 body {
   height: 100vh;
@@ -11,4 +14,10 @@ app-main{
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+.ql-toolbar.ql-snow, .ql-editor{
+  background-color: white !important;
+}
+.ql-container{
+  height: 80%;
 }
