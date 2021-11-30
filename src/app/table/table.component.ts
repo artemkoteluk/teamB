@@ -202,7 +202,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       Phone: this.dataSource.filteredData[id].Phone
     };
     const dialogRef = this.dialog.open(TableDialog, {
-      width: '250px',
+      width: '500px',
       data: User,
     });
 

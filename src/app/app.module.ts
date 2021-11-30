@@ -18,22 +18,20 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
-import { DragdropComponent } from './dragdrop/dragdrop.component';
 
 const routes: Routes = [
   {
     path: 'main',
     loadChildren: () => import('./main/main.module').then(m => m.MainModule),
   },
-  // {
-  //   path:'login',
-  //   loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
-  // },
-  // {
-  //   path:'register',
-  //   loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
-  //
-  // },
+  {
+    path:'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+  },
+  {
+    path:'register',
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
+  },
   {
     path: '',
     redirectTo: 'main',

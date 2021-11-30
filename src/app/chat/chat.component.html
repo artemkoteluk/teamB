@@ -1,7 +1,7 @@
-<div class="background"></div>
+
 <div class="foreground">
     <mat-card>
-        <mat-drawer-container class="example-container">
+        <div class="example-container">
             <mat-drawer mode="side" opened>
                 <div class="toolbar">
                     <img [src]='myAvatar' class="avatar">
@@ -37,7 +37,8 @@
                     </mat-list-option>
                 </mat-selection-list>
             </mat-drawer>
-            <mat-drawer-content>
+
+            <div class="chat-page">
                 <div class="toolbar">
                     <div class="toolbar-user">
                         <img [src]='currentConversation.avatar' class="avatar">
@@ -87,7 +88,7 @@
                         </button>
                     </mat-form-field>
                 </from>
-            </mat-drawer-content>
-        </mat-drawer-container>
+            </div>
+        </div>
     </mat-card>
 </div>
