@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NotifierModule } from 'angular-notifier';
 import {RouterModule, Routes} from "@angular/router";
-import {MainComponent} from "./main/main.component";
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AreaChartModule, BarChartModule, LineChartModule, NumberCardModule, PieChartModule} from "@swimlane/ngx-charts";
 import {MatCardModule} from "@angular/material/card";
@@ -18,6 +18,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
+import { QuillModule } from 'ngx-quill';
 
 const routes: Routes = [
   {
@@ -50,7 +51,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,8 @@ const routes: Routes = [
     MatDividerModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    QuillModule,
   ],
   providers: [MatDialog, Overlay],
   bootstrap: [AppComponent]
