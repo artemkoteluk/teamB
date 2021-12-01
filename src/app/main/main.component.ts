@@ -160,7 +160,7 @@ export class MainComponent implements OnInit {
           children:<any>[]
         },
         {
-          path: '',
+          path: '/main/blank',
           routeName: 'Blank',
           icon: 'picture_in_picture',
           badge: 0,
@@ -180,7 +180,7 @@ export class MainComponent implements OnInit {
           ]
         },
         {
-          path: '',
+          path: '/main/icons',
           routeName: 'Material Icons',
           icon: 'grade',
           badge: 0,
