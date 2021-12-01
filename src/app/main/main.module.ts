@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: () => import('../editor/editor.module').then(m => m.EditorModule),
       },
       {
+        path:'components',
+        loadChildren: () => import('../components/components.module').then(m => m.ComponentsModule),
+      },
+      {
         path: '**',
         redirectTo: 'dashboard',
         pathMatch: 'full'

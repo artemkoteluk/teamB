@@ -1,1 +1,15 @@
-
+/deep/app-editor.ng-star-inserted{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+ng-form{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+/deep/quill-editor{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}

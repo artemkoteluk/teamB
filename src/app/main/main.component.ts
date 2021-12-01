@@ -9,8 +9,8 @@ import {NavigationEnd, Router, Routes} from "@angular/router";
 export class MainComponent implements OnInit {
 
   showbackground = false;
-  location="Dashboard";
-  path="/main/dashboard";
+  location:string='Oops! Location not found...';
+  path=this.router.url.toString();
 
   appRoutes = [
     {
@@ -185,21 +185,31 @@ export class MainComponent implements OnInit {
           icon: 'grade',
           badge: 0,
           children:<any>[]
-        },
-        // {
-        //   path: '',
-        //   routeName: 'Multi-Level Menu',
-        //   icon: 'menu',
-        //   badge: 0,
-        //   children:<any>[]
-        // }
+        }
       ]
     },
   ];
 
-
-
   constructor(private router: Router) {
+    for (let appRoute of this.appRoutes) {
+      for (let groupRoute of appRoute.groupRoutes) {
+        if (groupRoute.children.length){
+          for (let child of groupRoute.children) {
+            if (child.path==this.path){
+              this.location=child.routeName;
+              break;
+            }
+          }
+        }
+        else {
+          if (groupRoute.path==this.path){
+            this.location=groupRoute.routeName;
+            break;
+          }
+        }
+      }
+    }
+
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd)
       {

@@ -20,6 +20,8 @@
   box-sizing: border-box;
   overflow-y: auto;
   z-index: 99;
+  display: flex;
+  flex-direction: column;
 }
 .example-sidenav-content {
   display: flex;
