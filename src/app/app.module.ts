@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
   },
   {
+    path:'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
+  },
+  {
     path: '',
     redirectTo: 'main',
     pathMatch: 'full'
