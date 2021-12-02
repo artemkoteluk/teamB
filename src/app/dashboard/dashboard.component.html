@@ -5,10 +5,13 @@
         <mat-card class="dashboard-card total-sales">
           <mat-card-header>
             <mat-card-title>Total Sales</mat-card-title>
-            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon> 16.3% compared to last month</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-icon>arrow_upward</mat-icon>
+              16.3% compared to last month
+            </mat-card-subtitle>
           </mat-card-header>
 
-          <div  class="card-content">
+          <div class="card-content">
             <div #containerRefTotalSales class="ngx-wrapper">
 
               <ngx-charts-bar-vertical
@@ -27,11 +30,14 @@
         <mat-card class="dashboard-card visits">
           <mat-card-header>
             <mat-card-title>Visits</mat-card-title>
-            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon>  42.5% compared to last month</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-icon>arrow_upward</mat-icon>
+              42.5% compared to last month
+            </mat-card-subtitle>
 
           </mat-card-header>
           <div class="card-content">
-            <div  #containerRefVisits class="ngx-wrapper">
+            <div #containerRefVisits class="ngx-wrapper">
 
 
               <ngx-charts-line-chart
@@ -52,10 +58,13 @@
         <mat-card class="dashboard-card total-clicks">
           <mat-card-header>
             <mat-card-title>Total Clicks</mat-card-title>
-            <mat-card-subtitle><mat-icon>arrow_downward</mat-icon>-6.1% compared to last month</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-icon>arrow_downward</mat-icon>
+              -6.1% compared to last month
+            </mat-card-subtitle>
 
           </mat-card-header>
-          <div  class="card-content">
+          <div class="card-content">
             <div #containerRefTotalClicks class="ngx-wrapper">
 
 
@@ -75,9 +84,12 @@
         <mat-card class="dashboard-card conversions">
           <mat-card-header>
             <mat-card-title>Conversions</mat-card-title>
-            <mat-card-subtitle><mat-icon>arrow_upward</mat-icon>10.4% compared to last month</mat-card-subtitle>
+            <mat-card-subtitle>
+              <mat-icon>arrow_upward</mat-icon>
+              10.4% compared to last month
+            </mat-card-subtitle>
           </mat-card-header>
-          <div  class="card-content">
+          <div class="card-content">
             <div #containerRefConversions class="ngx-wrapper">
 
 
@@ -97,7 +109,7 @@
   </div>
   <div class="group-2">
     <div class="group-2-1">
-      <mat-card  class="dashboard-card usage ">
+      <mat-card class="dashboard-card usage ">
         <div class="usage-button-container">
           <button mat-button class="usage-button active">
             <div class="usage-name">Users</div>
@@ -137,7 +149,7 @@
           </button>
         </div>
 
-        <div  class="card-content usage-chart">
+        <div class="card-content usage-chart">
           <div #containerRefUse class="ngx-wrapper">
 
             <ngx-charts-line-chart
@@ -178,7 +190,7 @@
                 </div>
               </div>
             </div>
-            <div  class="card-content">
+            <div class="card-content">
               <div #containerRefSalesSummary class="ngx-wrapper">
                 <ngx-charts-area-chart-stacked
                   [view]="[containerRefSalesSummary.offsetWidth, containerRefSalesSummary.offsetHeight]"
@@ -255,7 +267,7 @@
             <mat-card-subtitle>Top 3 countries sold 34% more items this month</mat-card-subtitle>
           </mat-card-header>
 
-          <div  class="card-content">
+          <div class="card-content">
             <div #containerRefSalesByCountry class="ngx-wrapper">
 
               <ngx-charts-advanced-pie-chart
@@ -280,7 +292,7 @@
             </mat-card-header>
 
             <div class="card-content ">
-              <div  #containerRefTopCategories class="ngx-wrapper">
+              <div #containerRefTopCategories class="ngx-wrapper">
 
                 <ngx-charts-pie-chart
                   [view]="[containerRefTopCategories.offsetWidth, containerRefTopCategories.offsetHeight]"
@@ -297,7 +309,7 @@
                   <div class="top-categories-stat-number">1096</div>
                   <div class="top-categories-stat-name">TOTAL SALES</div>
                 </div>
-                <mat-divider   vertical></mat-divider>
+                <mat-divider vertical></mat-divider>
                 <div class="top-categories-stat">
                   <div class="top-categories-stat-number">598</div>
                   <div class="top-categories-stat-name">TOP CATEGORIES</div>
@@ -346,12 +358,12 @@
               <table mat-table [dataSource]="dataSource" matSort>
 
                 <ng-container matColumnDef="product">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product</th>
                   <td mat-cell *matCellDef="let row"> {{row.product}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="price">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> $ Price </th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> $ Price</th>
                   <td mat-cell *matCellDef="let row"> ${{row.price}} </td>
                 </ng-container>
 
@@ -371,7 +383,7 @@
 
             </div>
 
-            <div  #containerRefRecentSales class="ngx-wrapper">
+            <div #containerRefRecentSales class="ngx-wrapper">
 
               <ngx-charts-area-chart
                 [view]="[containerRefRecentSales.offsetWidth, containerRefRecentSales.offsetHeight]"
@@ -387,9 +399,10 @@
         </mat-card>
       </div>
       <div class="group-3-2-1">
-        <div class="dashboard-card map">&lt;mat-card&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Map
-          <br>&lt;/mat-card&gt;
-        </div>
+        <mat-card id="map" class="dashboard-card map">
+
+        </mat-card>
+
       </div>
     </div>
   </div>
