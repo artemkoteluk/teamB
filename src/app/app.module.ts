@@ -19,6 +19,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
 import { QuillModule } from 'ngx-quill';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import { FormElementsComponent } from './form-elements/form-elements.component';
 
 const routes: Routes = [
   {
@@ -51,7 +56,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +80,10 @@ const routes: Routes = [
     MatSortModule,
     MatPaginatorModule,
     QuillModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [MatDialog, Overlay],
   bootstrap: [AppComponent]

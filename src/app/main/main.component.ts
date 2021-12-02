@@ -70,12 +70,12 @@ export class MainComponent implements OnInit {
           icon: 'description',
           children:<any>[
             {
-              path: '/main/forms/elements',
+              path: '/main/form-elements',
               routeName: 'Form Elements',
               icon: 'Fe'
             },
             {
-              path: '/main/forms/wizard',
+              path: '/main/form-wizard',
               routeName: 'Form Wizard',
               icon: 'Fw'
             }

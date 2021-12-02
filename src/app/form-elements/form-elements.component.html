@@ -1,0 +1,671 @@
+<div>
+  <div>
+    <mat-card class="dashboard-card basic-forms">
+      <mat-card-header>
+        <mat-card-title>Basic Forms</mat-card-title>
+        <mat-card-subtitle>Simple Material Form Input Elements</mat-card-subtitle>
+      </mat-card-header>
+      <mat-form-field appearance="fill">
+        <mat-label>Company</mat-label>
+        <input matInput type="text" required>
+      </mat-form-field>
+
+      <div class="basic-forms-names">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+
+          <input matInput type="text" required>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" value="Hello!" required>
+        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint>Try clicking the eye to toggle the visibility.
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hint Label and Max Length</mat-label>
+
+        <input matInput #lengthHint maxlength="10" type="text" required>
+        <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+        <mat-hint align="end">{{ lengthHint.value.length }}/10</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Disabled" disabled>
+      </mat-form-field>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="dashboard-card advanced-forms">
+      <mat-card-header>
+        <mat-card-title>Advanced Forms</mat-card-title>
+        <mat-card-subtitle>Form Input Variations</mat-card-subtitle>
+      </mat-card-header>
+      <div class="advanced-forms-colors">
+        <mat-form-field color="primary" appearance="fill">
+          <mat-label>Primary Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Accent Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="warn" appearance="fill">
+          <mat-label>Warn Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" type="text" value="DavidSmith">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Phone</mat-label>
+
+        <span matPrefix>+1 &nbsp;</span>
+        <input matInput type="text" required>
+        <mat-icon matSuffix>smartphone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select>
+          <mat-option value="NewYork">New York</mat-option>
+          <mat-option value="Washington">Washington</mat-option>
+          <mat-option value="Florida">Florida</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-hint>Click on the icon to the right for a Datepicker
+        </mat-hint>
+      </mat-form-field>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-card class="dashboard-card fill-input-style">
+      <mat-card-header>
+        <mat-card-title>Fill Input Style</mat-card-title>
+        <mat-card-subtitle>New Material Design 2 Input</mat-card-subtitle>
+      </mat-card-header>
+        <mat-form-field color="primary" appearance="fill">
+          <mat-label>Primary Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Accent Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="warn" appearance="fill">
+          <mat-label>Warn Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+    </mat-card>
+
+  </div>
+  <div>
+    <mat-card class="dashboard-card outline-input-style">
+      <mat-card-header>
+        <mat-card-title>Outline Input Style</mat-card-title>
+        <mat-card-subtitle>Impressive Input, great for standalone use</mat-card-subtitle>
+      </mat-card-header>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Primary Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Accent Color</mat-label>
+
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field color="warn" appearance="outline">
+          <mat-label>Warn Color</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+    </mat-card>
+
+  </div>
+  <div>
+    <mat-card class="dashboard-card standard-input-style">
+      <mat-card-header>
+        <mat-card-title>Standard Input Style</mat-card-title>
+        <mat-card-subtitle>Simple & Material Default</mat-card-subtitle>
+      </mat-card-header>
+        <mat-form-field color="primary">
+          <input matInput placeholder="Primary Color" type="text">
+        </mat-form-field>
+
+        <mat-form-field color="accent">
+          <input matInput placeholder="Accent Color" type="text">
+        </mat-form-field>
+
+        <mat-form-field color="warn">
+          <input matInput placeholder="Warn Color" type="text">
+        </mat-form-field>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-card class="dashboard-card form-prefix-suffix">
+      <mat-card-header>
+        <mat-card-title>Form Prefix/Suffix</mat-card-title>
+        <mat-card-subtitle>Prefix and Suffix text or icons</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">Add a Prefix and Suffix to an input field, from text to icons or symbols, anything and any element can be set as prefix or suffix.</div>
+      <mat-form-field appearance="fill">
+        <span matPrefix>+1 &nbsp;</span>
+        <input matInput placeholder="Input with prefix text" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Input with suffix icon">
+        <mat-icon matSuffix>menu</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <span matPrefix>http:// &nbsp;</span>
+        <input matInput placeholder="Input with prefix text and suffix icon">
+        <mat-icon matSuffix>camera</mat-icon>
+      </mat-form-field>
+    </mat-card>
+
+  </div>
+  <div>
+    <mat-card class="dashboard-card form-hint-label">
+      <mat-card-header>
+        <mat-card-title>Form Hint Label</mat-card-title>
+        <mat-card-subtitle>Hints for explanations or extra info</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">When you need to display additional information to the user you can use Hint Labels to display information appropriately.</div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput>
+        <mat-hint>e.g. david@example.com</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Domain Name</mat-label>
+        <input matInput #hintLabelInputRef>
+        <mat-hint align="end">http://{{ hintLabelInputRef.value || "company" }}.example.com</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Dynamic Hint Label</mat-label>
+        <input matInput #hintLabelInputLengthRef maxlength="10">
+        <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+        <mat-hint align="end">{{ hintLabelInputLengthRef.value.length }}/10</mat-hint>
+      </mat-form-field>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-card class="dashboard-card form-select">
+      <mat-card-header>
+        <mat-card-title>Form Select</mat-card-title>
+        <mat-card-subtitle>Select between multiple options</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">A intuitive select component that displays the current position you are at and has smooth animations.</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Favorite fruit</mat-label>
+        <mat-select>
+          <mat-option value="Apples">Apples</mat-option>
+          <mat-option value="Peaches">Peaches</mat-option>
+          <mat-option value="Bananas">Bananas</mat-option>
+          <mat-option value="Mango">Mango</mat-option>
+          <mat-option value="Apples">Cucumber</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field color="{{SelectColor.value}}" appearance="fill">
+        <mat-label>Themeable Colors</mat-label>
+        <mat-select #SelectColor>
+          <mat-option value="primary">Primary Color</mat-option>
+          <mat-option value="accent">Accent Color</mat-option>
+          <mat-option value="warn">Warn Color</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="dashboard-card form-datepicker">
+      <mat-card-header>
+        <mat-card-title>Form Datepicker</mat-card-title>
+        <mat-card-subtitle>Easily select a date for inputs</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">A Material styled Datepicker that allows for easy selection of any date with any format.</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Select tour date</mat-label>
+        <input matInput (click)="SelPicker.open()" [matDatepicker]="SelPicker">
+        <mat-datepicker-toggle matSuffix [for]="SelPicker"></mat-datepicker-toggle>
+        <mat-datepicker #SelPicker></mat-datepicker>
+        <mat-hint>Click on the icon to the right for a Datepicker
+        </mat-hint>
+      </mat-form-field>
+
+    </mat-card>
+
+  </div>
+  <div>
+    <mat-card class="dashboard-card form-slider">
+      <mat-card-header>
+        <mat-card-title>Form Slider</mat-card-title>
+        <mat-card-subtitle>Choose a value from a range</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">An component similiar to the range input with better usability and drag & drop + keyboard support.</div>
+
+      <mat-slider [min]="0" [max]="100" [step]="1" [thumbLabel]="true" [tickInterval]="10" value="36"></mat-slider>
+
+      <div class="form-slider-sliders">
+        <mat-slider [min]="0" [max]="10" [step]="1" value="6" color="primary"></mat-slider>
+        <mat-slider [min]="0" [max]="10" [step]="1" value="7" color="warn"></mat-slider>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-card class="dashboard-card form-checkbox">
+      <mat-card-header>
+        <mat-card-title>Form Checkbox</mat-card-title>
+        <mat-card-subtitle>Select and deselect simply</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">Allow for simple selecting and deselecting of options.</div>
+
+      <mat-checkbox [checked]="true">Stay signed in</mat-checkbox>
+      <mat-checkbox [indeterminate]="true">Indeterminate</mat-checkbox>
+      <mat-checkbox [checked]="false" align="end">Align end</mat-checkbox>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="dashboard-card form-checkbox-theming">
+      <mat-card-header>
+        <mat-card-title>Form Checkbox Theming</mat-card-title>
+        <mat-card-subtitle>Style Components using the Theme API</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">Style checkbox elements with the Theme API.</div>
+
+      <mat-checkbox [checked]="true" color="primary">Primary Color</mat-checkbox>
+      <mat-checkbox [checked]="true" color="accent">Accent Color</mat-checkbox>
+      <mat-checkbox [checked]="true" color="warn">Warn Color</mat-checkbox>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-card class="dashboard-card form-radio-button">
+      <mat-card-header>
+        <mat-card-title>Form Radio Button</mat-card-title>
+        <mat-card-subtitle>Let users decide between options</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">When you need a user to decide between multiple options and have him only choose one, you can use a radio button.</div>
+      <mat-radio-group>
+        <mat-radio-button value="Apples" [checked]="true">Apples</mat-radio-button>
+        <mat-radio-button value="Peaches">Peaches</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group color="accent">
+        <mat-radio-button value="primary" [checked]="true" color="primary">Primary Color</mat-radio-button>
+        <mat-radio-button value="accent" color="accent">Accent Color</mat-radio-button>
+        <mat-radio-button value="warn" color="warn">Warn Color</mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="dashboard-card form-slide-toggle">
+      <mat-card-header>
+        <mat-card-title>Form Slide Toggle</mat-card-title>
+        <mat-card-subtitle>Slide between two values</mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-text">Allow the user to slide toggle an option or a value. You can either click or you can drag & drop the slide to change its state.</div>
+      <div class="form-slide-toggle-slides">
+      <div>
+        <mat-slide-toggle [checked]="false">Slide Me</mat-slide-toggle>
+        <mat-slide-toggle [checked]="false">Drag & Drop</mat-slide-toggle>
+        <mat-slide-toggle [checked]="true">I Agree</mat-slide-toggle>
+      </div>
+      <div>
+        <mat-slide-toggle [checked]="true" color="primary" labelPosition="before">Primary Color</mat-slide-toggle>
+        <mat-slide-toggle [checked]="true" color="accent" labelPosition="before">Accent Color</mat-slide-toggle>
+        <mat-slide-toggle [checked]="true" color="warn" labelPosition="before">Warn Color</mat-slide-toggle>
+      </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!--
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Basic Forms</mat-card-title>
+    <mat-card-subtitle>Simple Material Form Input Elements</mat-card-subtitle>
+  </mat-card-header>
+<mat-form-field appearance="fill">
+  <mat-label>Company</mat-label>
+  <input matInput type="text" required>
+</mat-form-field>
+
+<div >
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+
+    <input matInput  type="text">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+
+    <input matInput type="text" required>
+  </mat-form-field>
+</div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput  [type]="hide ? 'password' : 'text'"  value="Hello!" required>
+    <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-hint>Try clicking the eye to toggle the visibility.
+    </mat-hint>
+  </mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Hint Label and Max Length</mat-label>
+
+  <input matInput #lengthHint maxlength="10" type="text" required>
+  <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+  <mat-hint align="end">{{ lengthHint.value.length }}/10</mat-hint>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <input matInput placeholder="Disabled" disabled>
+</mat-form-field>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Advanced Forms</mat-card-title>
+    <mat-card-subtitle>Form Input Variations</mat-card-subtitle>
+  </mat-card-header>
+  <div>
+    <mat-form-field color="primary" appearance="fill">
+      <mat-label>Primary Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Accent Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="warn" appearance="fill">
+      <mat-label>Warn Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" type="text" value="DavidSmith">
+    <mat-icon matSuffix>person</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mobile Phone</mat-label>
+
+    <span matPrefix>+1 &nbsp;</span>
+    <input matInput type="text" required>
+    <mat-icon matSuffix>smartphone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>State</mat-label>
+    <mat-select >
+      <mat-option value="NewYork">New York</mat-option>
+      <mat-option value="Washington">Washington</mat-option>
+      <mat-option value="Florida">Florida</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-hint>Click on the icon to the right for a Datepicker
+    </mat-hint>
+  </mat-form-field>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Fill Input Style</mat-card-title>
+    <mat-card-subtitle>New Material Design 2 Input</mat-card-subtitle>
+  </mat-card-header>
+  <div>
+    <mat-form-field color="primary" appearance="fill">
+      <mat-label>Primary Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Accent Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="warn" appearance="fill">
+      <mat-label>Warn Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Outline Input Style</mat-card-title>
+    <mat-card-subtitle>Impressive Input, great for standalone use</mat-card-subtitle>
+  </mat-card-header>
+  <div>
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Primary Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Accent Color</mat-label>
+
+      <input matInput  type="text">
+    </mat-form-field>
+
+    <mat-form-field color="warn" appearance="outline">
+      <mat-label>Warn Color</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Standard Input Style</mat-card-title>
+    <mat-card-subtitle>Simple & Material Default</mat-card-subtitle>
+  </mat-card-header>
+  <div>
+    <mat-form-field color="primary" >
+      <input matInput placeholder="Primary Color" type="text">
+    </mat-form-field>
+
+    <mat-form-field color="accent" >
+      <input matInput placeholder="Accent Color" type="text">
+    </mat-form-field>
+
+    <mat-form-field color="warn" >
+      <input matInput placeholder="Warn Color" type="text">
+    </mat-form-field>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Form Prefix/Suffix</mat-card-title>
+    <mat-card-subtitle>Prefix and Suffix text or icons</mat-card-subtitle>
+  </mat-card-header>
+  <mat-form-field>
+    <span matPrefix>+1 &nbsp;</span>
+    <input matInput placeholder="Input with prefix text">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Input with suffix icon">
+    <mat-icon matSuffix>menu</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <span matPrefix>http:// &nbsp;</span>
+    <input matInput placeholder="Input with prefix text and suffix icon">
+    <mat-icon matSuffix>camera</mat-icon>
+  </mat-form-field>
+</mat-card>
+
+<mat-card>
+  <mat-form-field>
+    <mat-label>Email Address</mat-label>
+    <input matInput >
+    <mat-hint>e.g. david@example.com</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Domain Name</mat-label>
+    <input matInput #hintLabelInputRef >
+    <mat-hint align="end">http://{{ hintLabelInputRef.value || "company" }}.example.com</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Dynamic Hint Label</mat-label>
+    <input matInput #hintLabelInputLengthRef maxlength="10" >
+    <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+    <mat-hint align="end">{{ hintLabelInputLengthRef.value.length }}/10</mat-hint>
+  </mat-form-field>
+</mat-card>
+
+<mat-card>
+
+  <mat-form-field>
+    <mat-label>Favorite fruit</mat-label>
+
+    <mat-select>
+    <mat-option value="Apples">Apples</mat-option>
+    <mat-option value="Peaches">Peaches</mat-option>
+    <mat-option value="Bananas">Bananas</mat-option>
+    <mat-option value="Mango">Mango</mat-option>
+    <mat-option value="Apples">Cucumber</mat-option>
+  </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="{{SelectColor.value}}" >
+    <mat-label>Themeable Colors</mat-label>
+    <mat-select #SelectColor >
+      <mat-option value="primary">Primary Color</mat-option>
+      <mat-option value="accent">Accent Color</mat-option>
+      <mat-option value="warn">Warn Color</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>
+
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Select tour date</mat-label>
+    <input matInput (click)="SelPicker.open()"  [matDatepicker]="SelPicker">
+    <mat-datepicker-toggle  matSuffix [for]="SelPicker"></mat-datepicker-toggle>
+    <mat-datepicker #SelPicker></mat-datepicker>
+    <mat-hint>Click on the icon to the right for a Datepicker
+    </mat-hint>
+  </mat-form-field>
+
+</mat-card>
+
+<mat-card>
+  <mat-slider [min]="0" [max]="100" [step]="1" [thumbLabel]="true" [tickInterval]="10" value="36"></mat-slider>
+
+  <div >
+    <mat-slider [min]="0" [max]="10" [step]="1" value="6" color="primary"></mat-slider>
+    <mat-slider [min]="0" [max]="10" [step]="1" value="8" color="accent"></mat-slider>
+    <mat-slider [min]="0" [max]="10" [step]="1" value="7" color="warn"></mat-slider>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-checkbox [checked]="false">Stay signed in</mat-checkbox>
+  <mat-checkbox [indeterminate]="true">Indeterminate</mat-checkbox>
+  <mat-checkbox [checked]="true" align="end">Align end</mat-checkbox>
+</mat-card>
+
+<mat-card>
+  <mat-checkbox [checked]="true" color="primary">Primary Color</mat-checkbox>
+  <mat-checkbox [checked]="true" color="accent">Accent Color</mat-checkbox>
+  <mat-checkbox [checked]="true" color="warn">Warn Color</mat-checkbox>
+</mat-card>
+<mat-card>
+  <mat-radio-group>
+    <mat-radio-button value="Apples" [checked]="true">Apples</mat-radio-button>
+    <mat-radio-button value="Peaches">Peaches</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group  color="accent">
+    <mat-radio-button value="primary" [checked]="true" color="primary">Primary Color</mat-radio-button>
+    <mat-radio-button value="accent" color="accent">Accent Color</mat-radio-button>
+    <mat-radio-button value="warn" color="warn">Warn Color</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<mat-card>
+  <div>
+    <mat-slide-toggle [checked]="false">Slide Me</mat-slide-toggle>
+    <mat-slide-toggle [checked]="false">Drag & Drop</mat-slide-toggle>
+    <mat-slide-toggle [checked]="true">I Agree</mat-slide-toggle>
+  </div>
+  <div>
+    <mat-slide-toggle [checked]="true" color="primary" labelPosition="before">Primary Color</mat-slide-toggle>
+    <mat-slide-toggle [checked]="true" color="accent" labelPosition="before">Accent Color</mat-slide-toggle>
+    <mat-slide-toggle [checked]="true" color="warn" labelPosition="before">Warn Color</mat-slide-toggle>
+  </div>
+</mat-card>
+-->
