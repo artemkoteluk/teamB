@@ -53,6 +53,14 @@ const routes: Routes = [
         loadChildren: () => import('../editor/editor.module').then(m => m.EditorModule),
       },
       {
+        path:'form-wizard',
+        loadChildren: () => import('../form-wizard/form-wizard.module').then(m => m.FormWizardModule),
+      },
+      {
+        path:'form-elements',
+        loadChildren: () => import('../form-elements/form-elements.module').then(m => m.FormElementsModule),
+      },
+      {
         path:'google-map',
         loadChildren: () => import('../google-map/google-map.module').then(m => m.GoogleMapModule),
       },

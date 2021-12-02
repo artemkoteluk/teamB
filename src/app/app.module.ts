@@ -19,6 +19,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
 import { QuillModule } from 'ngx-quill';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import { FormElementsComponent } from './form-elements/form-elements.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { SimpleComponent } from './simple/simple.component';
 import { SimpleTabbedComponent } from './simple-tabbed/simple-tabbed.component';
@@ -67,7 +72,8 @@ const routerOptions: ExtraOptions = {
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent],
+    DashboardComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -90,6 +96,10 @@ const routerOptions: ExtraOptions = {
     MatSortModule,
     MatPaginatorModule,
     QuillModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [MatDialog, Overlay, MatSnackBar],
   bootstrap: [AppComponent]
