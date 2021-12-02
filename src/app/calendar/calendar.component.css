@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+:host{
+  height: 100%;
+}
 .main {
     display: flex;
     flex-direction: column;
