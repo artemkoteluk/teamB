@@ -57,6 +57,22 @@ const routes: Routes = [
         loadChildren: () => import('../google-map/google-map.module').then(m => m.GoogleMapModule),
       },
       {
+        path:'simple',
+        loadChildren: () => import('../simple/simple.module').then(m => m.SimpleModule),
+      },
+      {
+        path:'simple-tabbed',
+        loadChildren: () => import('../simple-tabbed/simple-tabbed.module').then(m => m.SimpleTabbedModule),
+      },
+      {
+        path:'card',
+        loadChildren: () => import('../card/card.module').then(m => m.CardModule),
+      },
+      {
+        path:'card-tabbed',
+        loadChildren: () => import('../card-tabbed/card-tabbed.module').then(m => m.CardTabbedModule),
+      },
+      {
         path:'components',
         loadChildren: () => import('../components/components.module').then(m => m.ComponentsModule),
       },

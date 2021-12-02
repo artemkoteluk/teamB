@@ -20,6 +20,9 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
 import { QuillModule } from 'ngx-quill';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { SimpleComponent } from './simple/simple.component';
+import { SimpleTabbedComponent } from './simple-tabbed/simple-tabbed.component';
+import { CardComponent } from './card/card.component';
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 const routes: Routes = [
