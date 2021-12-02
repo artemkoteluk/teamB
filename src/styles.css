@@ -19,5 +19,8 @@ app-main{
   background-color: white !important;
 }
 .ql-container{
-  height: 80%;
+  box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: inherit;
 }

@@ -230,7 +230,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       Phone: ''
     };
     const dialogRef = this.dialog.open(TableDialog, {
-      width: '250px',
+      width: '500px',
       data: newUser,
     });
 
