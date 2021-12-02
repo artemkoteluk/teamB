@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
   hide_repeat = true;
   acceptTOS = false;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.RegisterForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
@@ -23,10 +25,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(): void {
-    alert('Submit form.');
+    this.router.navigate(['main/dashboard'])
   }
   navigateTo(path: string) {
-    alert('Navigate to: ' + path);
+    this.router.navigate([path])
   }
   acceptTOSChanged(check: boolean) {
     console.log('Accept TOS: ' + check);

@@ -1,0 +1,78 @@
+<!-- workaround to remove padding from Olya's amazing code -->
+<link rel="stylesheet" href="data:text/css;charset=utf-8;base64,LnBhZ2UtY29udGVudCB7DQogICBwYWRkaW5nOiAwIWltcG9ydGFudDsNCn0NCi5wYWdlLWNvbnRlbnQgaDEsLnBhZ2UtY29udGVudCBoMyB7DQogICAgZGlzcGxheTogbm9uZTsNCn0=">
+<div class="main">
+    <div class="calendar-header">
+        <div class="header-content">
+            <div class="header-text">{{displayed.header}}</div>
+            <div class="header-buttons">
+                <button mat-icon-button (click)="prev()">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+                <button mat-icon-button (click)="next()">
+                    <mat-icon>navigate_next</mat-icon>
+                </button>
+                <button mat-button>MONTH</button>
+                <button mat-button>WEEK</button>
+                <button mat-button>DAY</button>
+            </div>
+        </div>
+    </div>
+    <div class="calendar-body">
+        <div class="scroller-wrapper">
+            <div *ngIf="displayed.view === 'month'" class="month-view">
+                <div>
+                    <div class="header-row">
+                        <div>Sunday</div>
+                        <div>Monday</div>
+                        <div>Tuesday</div>
+                        <div>Wednesday</div>
+                        <div>Thursday</div>
+                        <div>Friday</div>
+                        <div>Saturday</div>
+                    </div>
+                </div>
+                <div class="body-container">
+                    <div class="body">
+                        <div *ngFor="let week of displayed.formated">
+                            <mat-divider></mat-divider>
+                            <div class="body-week-row">
+                                <div *ngFor="let day of week">
+                                    <mat-divider vertical></mat-divider>
+                                    <div [class]="'body-day-cell' + (day.month !== displayed.month ? ' grayed-out': '' ) + (isCurrentDay(day) ? ' current-day':'') + (isSelected(day) ? ' selected-day':'')" (click)="dayClick(day, week)">
+                                        <div *ngIf="day.events.length > 0" class="day-event-counter">
+                                            {{day.events.length}}</div>
+                                        <div class="day-num">
+                                            {{ day.num }}
+                                        </div>
+                                        <div class="day-events">
+                                            <div *ngFor="let event of day.events" class="day-event" [style]="'background: '+event.color"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="displayed.events.length > 0 && week === selected.formatedWeek">
+                                <mat-divider></mat-divider>
+                                <div class="events">
+                                    <div class="event" *ngFor="let event of displayed.events">
+                                        <div class="event-color" [style]="'background: '+event.color"></div>
+                                        <div class="event-name">{{event.name}}</div>
+                                        <button mat-icon-button>
+                                            <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                        </button>
+                                        <button mat-icon-button>
+                                            <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                    </div>
+                    <mat-divider vertical></mat-divider>
+                </div>
+            </div>
+            <div *ngIf="displayed.view === 'week'" class="week-view">Week view</div>
+            <div *ngIf="displayed.view === 'day'" class="day-view">Day view</div>
+        </div>
+    </div>
+</div>

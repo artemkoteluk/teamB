@@ -25,8 +25,24 @@ const routes: Routes = [
         loadChildren: () => import('../dragdrop/dragdrop.module').then(m => m.DragdropModule)
       },
       {
+        path:'icons',
+        loadChildren: () => import('../icons/icons.module').then(m => m.IconsModule),
+      },
+      {
+        path:'blank',
+        loadChildren: () => import('../blank/blank.module').then(m => m.BlankModule),
+      },
+      {
+        path:'level1/level2/level3',
+        loadChildren: () => import('../level3/level3.module').then(m => m.Level3Module),
+      },
+      {
         path:'chat',
         loadChildren: () => import('../chat/chat.module').then(m => m.ChatModule),
+      },
+      {
+        path:'calendar',
+        loadChildren: () => import('../calendar/calendar.module').then(m => m.CalendarModule),
       },
       {
         path:'dashboard',
@@ -55,6 +71,10 @@ const routes: Routes = [
       {
         path:'card-tabbed',
         loadChildren: () => import('../card-tabbed/card-tabbed.module').then(m => m.CardTabbedModule),
+      },
+      {
+        path:'components',
+        loadChildren: () => import('../components/components.module').then(m => m.ComponentsModule),
       },
       {
         path: '**',
