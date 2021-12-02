@@ -131,22 +131,22 @@ export class MainComponent implements OnInit {
           badge: 0,
           children:<any>[
             {
-              path: '',
+              path: '/main/simple',
               routeName: 'Simple',
               icon: 'Si'
             },
             {
-              path: '',
+              path: '/main/simple-tabbed',
               routeName: 'Simple Tabbed',
               icon: 'St'
             },
             {
-              path: '',
+              path: '/main/card',
               routeName: 'Card',
               icon: 'Ca'
             },
             {
-              path: '',
+              path: '/main/card-tabbed',
               routeName: 'Card Tabbed',
               icon: 'Ct'
             }
