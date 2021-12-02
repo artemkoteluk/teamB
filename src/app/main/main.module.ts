@@ -25,6 +25,18 @@ const routes: Routes = [
         loadChildren: () => import('../dragdrop/dragdrop.module').then(m => m.DragdropModule)
       },
       {
+        path:'icons',
+        loadChildren: () => import('../icons/icons.module').then(m => m.IconsModule),
+      },
+      {
+        path:'blank',
+        loadChildren: () => import('../blank/blank.module').then(m => m.BlankModule),
+      },
+      {
+        path:'level1/level2/level3',
+        loadChildren: () => import('../level3/level3.module').then(m => m.Level3Module),
+      },
+      {
         path:'chat',
         loadChildren: () => import('../chat/chat.module').then(m => m.ChatModule),
       },
