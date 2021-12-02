@@ -24,6 +24,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import { FormElementsComponent } from './form-elements/form-elements.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { SimpleComponent } from './simple/simple.component';
+import { SimpleTabbedComponent } from './simple-tabbed/simple-tabbed.component';
+import { CardComponent } from './card/card.component';
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 const routes: Routes = [
