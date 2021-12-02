@@ -153,7 +153,7 @@ export class MainComponent implements OnInit {
           ]
         },
         {
-          path: '',
+          path: '/coming-soon',
           routeName: 'Coming Soon',
           icon: 'watch_later',
           badge: 0,

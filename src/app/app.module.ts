@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
   },
   {
+    path:'coming-soon',
+    loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
+  },
+  {
     path:'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
   },
