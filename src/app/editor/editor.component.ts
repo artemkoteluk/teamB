@@ -9,7 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class EditorComponent implements OnInit {
 
   editorForm:FormGroup;
-  someContent='<h1 style="text-align: center">Quill Rich Text Editor</h1>' +
+  someContent='<h1 style="text-align: center">Quill Rich Text Editor</h1><p>\n</p>' +
     '<p>Quill is a free, <a href="https://github.com/quilljs/quill/">open source</a> WYSIWYG editor built for the modern web. With its <a href="https://quilljs.com/docs/modules/">modular architecture</a> and expressive <a href="https://quilljs.com/docs/api/">API</a>, it is completely customizable to fit any need.</p><p>\n</p>' +
 
     '<iframe class="ql-video ql-align-center" frameborder="0" allowfullscreen="true" width="500" height="250" src="https://player.vimeo.com/video/253905163"></iframe>' +

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from "@angular/router";
 import { RegisterComponent } from './register.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +10,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: RegisterComponent,
+    children: [
+      {
+        path: '**',
+        redirectTo: 'register',
+        pathMatch: 'full'
+      }
 
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
@@ -17,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    RouterModule.forChild(routes),
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
