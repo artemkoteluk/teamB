@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: () => import('../editor/editor.module').then(m => m.EditorModule),
       },
       {
+        path:'google-map',
+        loadChildren: () => import('../google-map/google-map.module').then(m => m.GoogleMapModule),
+      },
+      {
         path: '**',
         redirectTo: 'dashboard',
         pathMatch: 'full'

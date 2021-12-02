@@ -173,7 +173,7 @@ export class MainComponent implements OnInit {
           badge: 3,
           children:<any>[
             {
-              path: '/main/map',
+              path: '/main/google-map',
               routeName: 'Google Maps',
               icon: 'Gm'
             },

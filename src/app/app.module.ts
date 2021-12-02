@@ -19,6 +19,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {Overlay} from "@angular/cdk/overlay";
 import { QuillModule } from 'ngx-quill';
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 const routes: Routes = [
   {
@@ -51,8 +52,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-  ],
+    DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
