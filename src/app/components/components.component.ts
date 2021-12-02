@@ -306,7 +306,7 @@ export class ComponentsComponent implements OnInit {
 
   scroll(id) {
     let el=document.getElementById(id);
-    console.log(el);
+    // console.log(el);
     el.scrollIntoView();
   }
   openDialog(): void {
@@ -316,7 +316,7 @@ export class ComponentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       if(result)
       this.dialogAnswer = result;
       else this.dialogAnswer = 'No answer';

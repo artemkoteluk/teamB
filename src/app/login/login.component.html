@@ -1,51 +1,54 @@
 <div class="card-wrapper">
-    <mat-card>
-        <div mat-card-image>
-            <div class="logo">
-                <svg viewBox="0 0 33.74 33.99" xmlns="http://www.w3.org/2000/svg" style="fill:#fff;">
-                    <title>icon</title>
-                    <path
-                        d="M26.83,19.33c-.36.37-.73.71-1.09,1l.31,3.22a5.41,5.41,0,0,1-2.43,5.14L15.72,34l-.67-8.74a6.54,6.54,0,0,1-6.57-6.53L0,18.18l5-7.93a5.41,5.41,0,0,1,5.23-2.54l3.1.31q.49-.55,1.05-1.11C20.78.54,30.82-.62,33.48.26,34.37,2.93,33.2,13,26.83,19.33Zm-.45-12a3.77,3.77,0,1,0,0,5.33A3.77,3.77,0,0,0,26.38,7.36ZM2.82,23.72l3.24-3.24a8.24,8.24,0,0,0,7.11,7.1L10.5,30.25,7.74,33V29.46L2.41,31.23l1.78-5.32H.64Z">
-                    </path>
-                </svg>
-            </div>
-        </div>
+  <mat-card>
+    <div mat-card-image>
+      <div class="logo">
+        <svg viewBox="0 0 33.74 33.99" xmlns="http://www.w3.org/2000/svg" style="fill:#fff;">
+          <title>icon</title>
+          <path
+            d="M26.83,19.33c-.36.37-.73.71-1.09,1l.31,3.22a5.41,5.41,0,0,1-2.43,5.14L15.72,34l-.67-8.74a6.54,6.54,0,0,1-6.57-6.53L0,18.18l5-7.93a5.41,5.41,0,0,1,5.23-2.54l3.1.31q.49-.55,1.05-1.11C20.78.54,30.82-.62,33.48.26,34.37,2.93,33.2,13,26.83,19.33Zm-.45-12a3.77,3.77,0,1,0,0,5.33A3.77,3.77,0,0,0,26.38,7.36ZM2.82,23.72l3.24-3.24a8.24,8.24,0,0,0,7.11,7.1L10.5,30.25,7.74,33V29.46L2.41,31.23l1.78-5.32H.64Z">
+          </path>
+        </svg>
+      </div>
+    </div>
 
-        <form mat-card-content [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-            <div class="email-pass-wrapper">
-                <mat-form-field appearance="fill">
-                    <mat-label>E-Mail *</mat-label>
-                    <input [formControlName]="'email'" type="email" matInput>
-                    <mat-error *ngIf=" LoginForm.controls['email'].hasError('required')">
-                        We need an email address to log you in
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Password *</mat-label>
-                    <input [formControlName]="'password'" matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
-                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-error *ngIf=" LoginForm.controls['password'].hasError('required')">
-                        We need a password to log you in
-                    </mat-error>
-                    <mat-hint>Click the eye to toggle visibility</mat-hint>
-                </mat-form-field>
-            </div>
-            <div class="remember-me-forgot-pass-wrapper">
-                <mat-checkbox [checked]="remeberMe" (change)="rememberMeChanged($event.checked)"><span
-                        class="caption">Remember Me</span></mat-checkbox>
-                <a class="caption" href="/forgot-password" (click)="navigateTo('forgot-password')">Forgot Password?</a>
-            </div>
-            <button mat-raised-button type="submit" color="primary" style="margin-bottom: 16px; width: 100%;">SIGN
-                IN</button>
-            <p class="secondary-text register-wrapper caption-1">
-                Don't have an account?
-                <br>
-                <a href="/register" (click)="navigateTo('register')" class="caption-1">Click here to create one</a>
-            </p>
-            <div></div>
-        </form>
-    </mat-card>
+    <form mat-card-content [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+      <div class="email-pass-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>E-Mail *</mat-label>
+          <input [formControlName]="'email'" type="email" matInput>
+          <mat-error *ngIf=" LoginForm.controls['email'].hasError('required')">
+            We need an email address to log you in
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password *</mat-label>
+          <input [formControlName]="'password'" matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf=" LoginForm.controls['password'].hasError('required')">
+            We need a password to log you in
+          </mat-error>
+          <mat-hint>Click the eye to toggle visibility</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="remember-me-forgot-pass-wrapper">
+        <mat-checkbox [checked]="remeberMe" (change)="rememberMeChanged($event.checked)"><span class="caption">Remember Me</span>
+        </mat-checkbox>
+        <a class="caption" href="/forgot-password" onclick="event.preventDefault(); this.children[0].click()"><i
+          (click)="navigateTo('forgot-password')"></i>Forgot Password?</a>
+      </div>
+      <button mat-raised-button type="submit" color="primary" style="margin-bottom: 16px; width: 100%;">SIGN
+        IN
+      </button>
+      <p class="secondary-text register-wrapper caption-1">
+        Don't have an account?
+        <br>
+        <a href="/register" class="caption-1" onclick="event.preventDefault(); this.children[0].click()"><i
+          (click)="navigateTo('register')"></i>Click here to create one</a>
+      </p>
+      <div></div>
+    </form>
+  </mat-card>
 </div>

@@ -118,7 +118,7 @@ export class MainComponent implements OnInit {
               icon: 'Rp'
             },
             {
-              path: '',
+              path: '/forgot-password',
               routeName: 'Forgot Password',
               icon: 'Fp'
             }
