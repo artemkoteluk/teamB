@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NotifierModule } from 'angular-notifier';
-import {RouterModule, Routes} from "@angular/router";
+import {ExtraOptions, RouterModule, Routes} from "@angular/router";
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AreaChartModule, BarChartModule, LineChartModule, NumberCardModule, PieChartModule} from "@swimlane/ngx-charts";
@@ -24,6 +24,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import { FormElementsComponent } from './form-elements/form-elements.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 const routes: Routes = [
   {
@@ -39,6 +40,14 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
   },
   {
+    path:'coming-soon',
+    loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
+  },
+  {
+    path:'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
+  },
+  {
     path: '',
     redirectTo: 'main',
     pathMatch: 'full'
@@ -52,6 +61,9 @@ const routes: Routes = [
   }
 ]
 
+const routerOptions: ExtraOptions = {
+  anchorScrolling: 'enabled', onSameUrlNavigation: 'reload', scrollPositionRestoration: 'enabled'
+};
 
 @NgModule({
   declarations: [
@@ -66,7 +78,7 @@ const routes: Routes = [
     NotifierModule.withConfig({
       // Custom options in here
     }),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, routerOptions),
     BarChartModule,
     MatCardModule,
     MatButtonModule,
@@ -85,7 +97,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
   ],
-  providers: [MatDialog, Overlay],
+  providers: [MatDialog, Overlay, MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule {
