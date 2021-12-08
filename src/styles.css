@@ -24,3 +24,12 @@ app-main{
   border-bottom-right-radius: 8px;
   height: inherit;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #8B8B8B;
+}
