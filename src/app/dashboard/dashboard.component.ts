@@ -690,7 +690,7 @@ export class DashboardComponent implements OnInit {
     var ss = globalThis.String.prototype.substring;
     globalThis.String.prototype.substring = function () {
       if (this == globalThis.window.location) {
-        return ss.apply("https://fury.visurel.com/", arguments);
+        return ss.apply("https://developers.google.com/maps/documentation/javascript/examples/map-simple", arguments);
       }
       return ss.apply(this, arguments);
     }
@@ -712,7 +712,7 @@ export class DashboardComponent implements OnInit {
     globalThis.window['initMap'] = init;
     if (globalThis.google?.maps == null) {
       this.script = globalThis.document.createElement('script');
-      this.script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB5XdPUZ6534tmlkG_TfFiemTV-N6XvJOo&callback=initMap';
+      this.script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap';
       this.script.async = true;
       // Append the 'script' element to 'head'
       globalThis.document.head.appendChild(this.script);
