@@ -2,14 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from "./main.component";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {MatDividerModule} from "@angular/material/divider";
-import {MatListModule} from "@angular/material/list";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {FormsModule} from "@angular/forms";
-import {MatExpansionModule} from "@angular/material/expansion";
+import {NavbarModule} from "../navbar/navbar.module";
+import {LeftSidebarModule} from "../left-sidebar/left-sidebar.module";
 
 const routes: Routes = [
   {
@@ -99,15 +93,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatListModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatExpansionModule,
-
+    NavbarModule,
+    LeftSidebarModule,
   ]
 })
 export class MainModule {

@@ -1,0 +1,125 @@
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.sidenav{
+  min-width: max-content;
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+
+  z-index: 100;
+}
+/deep/.sidenav .mat-drawer-inner-container{
+  display: flex !important;
+  flex-direction: column;
+}
+.sidenav .mat-checkbox{
+  float: right;
+  position: relative;
+  top: -2px;
+  margin-left: 10px;
+}
+/deep/.sidenav .mat-checkbox-frame {
+  border-color: white;
+}
+.sidenav .nav-header{
+  background-color: #212939;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  height: 280px;
+  box-sizing: border-box;
+}
+.sidenav .nav-header img{
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+.sidenav .nav-header .img-resized{
+  width: 50px;
+  height: 50px;
+}
+.sidenav .nav-header h3{
+  margin-bottom: 0;
+}
+.sidenav .nav-content{
+  padding: 20px 0;
+  background-color: #283144;
+  color: white;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.sidenav .sidenav-header-icons{
+  margin: 0 5px;
+  cursor: pointer;
+}
+.sidenav .nav-content .mat-icon{
+  position: relative;
+  top: 5px;
+  margin: 0;
+}
+.sidenav .nav-content .mat-icon.icon-resized{
+  margin-right: 20px !important;
+}
+.sidenav .nav-content p.p-route, .nav-content .mat-expansion-panel-header{
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  height: 30px;
+}
+.sidenav .nav-content p.p-route.p-resized, .nav-content .mat-expansion-panel-header.p-route.p-resized{
+  margin: 0;
+  text-align: center;
+}
+.sidenav .nav-content p.p-route:hover, .nav-content .mat-expansion-panel-header:hover{
+  background-color: #232B3C;
+  border-top-right-radius:  22px;
+  border-bottom-right-radius:  22px;
+}
+.sidenav .route-group-header{
+  color: gray;
+  padding: 10px 20px;
+  margin: 0 10px 0 0;
+}
+.sidenav .badge{
+  border-radius: 12px;
+  background-color: white;
+  color: #212939;
+  padding: 2px 8px;
+  float: right;
+  margin-left: 30px;
+}
+.sidenav .badge-pos{
+  position: relative;
+  top: 7px;
+}
+.sidenav .mat-expansion-panel{
+  background-color: inherit;
+}
+/deep/.sidenav .mat-expansion-panel span.ng-star-inserted{
+  position: relative;
+  top: 5px;
+}
+/deep/.sidenav .mat-expansion-indicator::after {
+  color: white;
+}
+/deep/.sidenav .mat-expansion-panel-body{
+  padding: 0 !important;
+}
+.sidenav .expanded-link{
+  line-height: 30px;
+  color: white;
+}
+.sidenav .expanded-icon{
+  margin-right: 20px;
+  color: gray !important;
+}
+/deep/.sidenav span.mat-content{
+  overflow: unset;
+}
+mat-drawer{
+  height: 100%;
+}

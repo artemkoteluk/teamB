@@ -1,4 +1,6 @@
+<div class="editor-container">
+  <ng-form [formGroup]="editorForm">
+    <quill-editor formControlName="editor" [(ngModel)]="someContent"></quill-editor>
+  </ng-form>
+</div>
 
-<ng-form [formGroup]="editorForm">
-  <quill-editor formControlName="editor" [(ngModel)]="someContent"></quill-editor>
-</ng-form>

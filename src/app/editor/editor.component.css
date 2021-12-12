@@ -13,3 +13,10 @@ ng-form{
   display: flex;
   flex-direction: column;
 }
+.editor-container{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  box-sizing: border-box;
+}
