@@ -23,4 +23,22 @@ app-main{
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   height: inherit;
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar:hover {
+  background-color: #DCDCDC;
+}
+.no-scrollbar-bg ::-webkit-scrollbar:hover {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #8B8B8B;
+}
+.padding-container{
+  padding: 25px;
 }
