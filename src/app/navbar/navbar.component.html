@@ -6,11 +6,13 @@
         <input type="text" matInput formControlName="routeGroup" [matAutocomplete]="autoGroup" placeholder="Search...">
 
         <mat-autocomplete #autoGroup="matAutocomplete">
+
           <mat-optgroup *ngFor="let group of routeGroupOptions | async" [label]="group.groupName">
-            <mat-option *ngFor="let name of group.routeNames" [value]="name">
-              {{name}}
+           <mat-option *ngFor="let route of group.routes" [value]="route.name" (click)="navbarNavigate(route.route)">
+              {{route.name}}
             </mat-option>
           </mat-optgroup>
+
         </mat-autocomplete>
       </mat-form-field>
     </form>

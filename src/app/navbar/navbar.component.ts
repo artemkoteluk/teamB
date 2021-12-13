@@ -3,6 +3,7 @@ import {DOCUMENT} from "@angular/common";
 import {Observable} from "rxjs";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {map, startWith} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 export interface Notification {
   id:number,
@@ -12,13 +13,9 @@ export interface Notification {
 }
 export interface RouteGroup {
   groupName: string;
-  routeNames: string[];
+  routes: {name: string, route: string}[];
 }
-export const _filter = (opt: string[], value: string): string[] => {
-  const filterValue = value.toLowerCase();
 
-  return opt.filter(item => item.toLowerCase().includes(filterValue));
-};
 
 @Component({
   selector: 'app-navbar',
@@ -61,34 +58,44 @@ export class NavbarComponent implements OnInit {
   routeGroups: RouteGroup[] = [
     {
       groupName: 'Recently Visited',
-      routeNames: ['All-In-One-Table', 'Form Wizard', 'Inbox', 'WYSIWYG Editor', 'Google Maps'],
+      routes: [
+        {name: 'All-In-One-Table', route: '/main/table'},
+        {name: 'Form Wizard', route: '/main/form-wizard'},
+        {name: 'Inbox', route: '/main/inbox'},
+        {name: 'WYSIWYG Editor', route: '/main/editor'},
+        {name: 'Google Maps', route: '/main/google-map'}
+      ],
     },
     {
       groupName: 'Frequently Visited',
-      routeNames: ['Form Elements', 'Form Wizard', 'WYSIWYG Editor', 'Google Maps', 'Material Dialog'],
+      routes: [
+        {name: 'Form Elements', route: '/main/form-elements'},
+        {name: 'Form Wizard',  route: '/main/form-wizard'},
+        {name: 'WYSIWYG Editor',  route: '/main/editor'},
+        {name: 'Google Maps', route: '/main/google-map'},
+        {name: 'Material Dialog', route: '/main/components'},
+      ],
     },
     ]
   routeGroupOptions: Observable<RouteGroup[]>;
 
-  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder) { }
+  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.elem = document.documentElement;
     this.routeGroupOptions = this.routeForm.get('routeGroup')!.valueChanges.pipe(
       startWith(''),
-      map(value => this._filterGroup(value)),
+      map(value => this._filter(value)),
     );
   }
 
-  private _filterGroup(value: string): RouteGroup[] {
-    if (value) {
-      return this.routeGroups
-        .map(group => ({groupName: group.groupName, routeNames: _filter(group.routeNames, value)}))
-        .filter(group => group.routeNames.length > 0);
-    }
-
-    return this.routeGroups;
-  }
+  private _filter( value: string): any[] {
+    const filterValue = value.toLowerCase();
+    return this.routeGroups.map((e: any) => {
+      // console.log(e.routes.filter(item => item.name.toLowerCase().includes(filterValue)));
+      return {groupName: e.groupName, routes: e.routes.filter(item => item.name.toLowerCase().includes(filterValue))}
+    }).filter(group => group.routes.length > 0);
+  };
 
   Fullscreen() {
     this.elem.requestFullscreen();
@@ -108,5 +115,9 @@ export class NavbarComponent implements OnInit {
     for (let n of this.notifications) {
       n.isActive=false;
     }
+  }
+
+  navbarNavigate(route: string) {
+    this.router.navigate([route]);
   }
 }
