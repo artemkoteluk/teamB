@@ -49,14 +49,7 @@ app-main{
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
   background-color: white;
-}
-.sidebar-backdrop {
-  background-color: #0009;
 }
 .sidebar-panel {
   position: relative;

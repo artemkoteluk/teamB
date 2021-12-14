@@ -1,9 +1,10 @@
 import { Injectable, Injector, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal, PortalInjector, PortalHost } from '@angular/cdk/portal';
+import {ComponentPortal, PortalInjector} from '@angular/cdk/portal';
 
-import { SidebarOverlayRef } from './sidebar-overlay-ref';
-import { RightSidebarComponent } from './right-sidebar.component';
+import { SidebarOverlayRef } from '../notifications-sidebar/sidebar-overlay-ref';
+import {SettingsSidebarComponent} from "../settings-sidebar/settings-sidebar.component";
+import {NotificationsSidebarComponent} from "../notifications-sidebar/notifications-sidebar.component";
 
 interface SidebarConfig {
   panelClass?: string;
@@ -25,7 +26,7 @@ export class SidebarService {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
-  open() {
+  open(sidebarMode: boolean) {
     // Override default configuration
     const sidebarConfig = DEFAULT_CONFIG;
 
@@ -35,12 +36,25 @@ export class SidebarService {
     // Instantiate remote control
     const sidebarRef = new SidebarOverlayRef(overlayRef);
 
-    const overlayComponent = this.attachSidebarContainer(
-      RightSidebarComponent,
-      overlayRef,
-      sidebarConfig,
-      sidebarRef
-    );
+    let overlayComponent:any ;
+    if(sidebarMode)
+    {
+      overlayComponent = this.attachSidebarContainer(
+        NotificationsSidebarComponent,
+        overlayRef,
+        sidebarConfig,
+        sidebarRef
+      );
+    }
+    else{
+      overlayComponent = this.attachSidebarContainer(
+        SettingsSidebarComponent,
+        overlayRef,
+        sidebarConfig,
+        sidebarRef
+      );
+    }
+
 
     // Pass the instance of the overlay component to the remote control
     sidebarRef.componentInstance = overlayComponent;

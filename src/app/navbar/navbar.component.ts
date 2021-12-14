@@ -123,7 +123,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  openRightSidebar() {
-    const sidebarRef: OverlayRef = this.sidebarService.open();
+  openRightSidebar(mode: boolean) {
+    const sidebarRef: OverlayRef = this.sidebarService.open(mode);
   }
 }
