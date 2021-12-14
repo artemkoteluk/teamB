@@ -1,0 +1,59 @@
+<div class="panel" [@slideInOut]="animationState" (@slideInOut.start)="onAnimationStart($event)" (@slideInOut.done)="onAnimationDone($event)">
+
+  <mat-tab-group>
+    <mat-tab label="Overview">
+      <mat-card-subtitle>Today</mat-card-subtitle>
+      <mat-card-title>{{getDateFormat()}}</mat-card-title>
+      <mat-divider></mat-divider>
+
+      <mat-list>
+        <div mat-subheader>UPCOMING EVENTS</div>
+        <mat-list-item *ngFor="let event of myEvents">
+          <div mat-line>{{event.name}}</div>
+          <div mat-line> {{event.time}} </div>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <div mat-subheader>TODO-LIST</div>
+        <mat-list-item *ngFor="let td of todos">
+          <div mat-line>{{td.name}}</div>
+          <div mat-line> {{td.time}} </div>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <div mat-subheader>SERVER STATISTICS</div>
+        <mat-list-item *ngFor="let stat of statistics" class="mat-list-progress">
+          <div mat-line>{{stat.name}} ({{stat.currentVal}}{{stat.sign}} /{{stat.maxVal}}{{stat.sign}})</div>
+          <mat-progress-bar mode="determinate" color="{{stat.color}}" value="{{stat.currentVal/stat.maxVal*100}}"></mat-progress-bar>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-tab>
+    <mat-tab label="Notifications">
+      <mat-list>
+        <div mat-subheader>FRIENDS</div>
+        <mat-list-item *ngFor="let event of myEvents">
+          <img src="./assets/images/Pikachu.png" alt="avatar">
+          <div>
+            <div mat-line>{{event.name}}</div>
+            <div mat-line> {{event.time}}</div>
+          </div>
+
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <div mat-subheader>SERVER STATISTICS</div>
+        <mat-list-item *ngFor="let stat of statistics" class="mat-list-progress">
+          <div mat-line>{{stat.name}} ({{stat.currentVal}}{{stat.sign}} /{{stat.maxVal}}{{stat.sign}})</div>
+          <mat-progress-bar mode="determinate" color="{{stat.color}}" value="{{stat.currentVal/stat.maxVal*100}}"></mat-progress-bar>
+        </mat-list-item>
+      </mat-list>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+</div>

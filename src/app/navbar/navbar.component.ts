@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {map, startWith} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {SidebarService} from "../right-sidebar/sidebar.service";
+import {OverlayRef} from "@angular/cdk/overlay";
 
 export interface Notification {
   id:number,
@@ -79,7 +81,7 @@ export class NavbarComponent implements OnInit {
     ]
   routeGroupOptions: Observable<RouteGroup[]>;
 
-  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder, private router: Router) { }
+  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder, private router: Router, private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
     this.elem = document.documentElement;
@@ -119,5 +121,9 @@ export class NavbarComponent implements OnInit {
 
   navbarNavigate(route: string) {
     this.router.navigate([route]);
+  }
+
+  openRightSidebar() {
+    const sidebarRef: OverlayRef = this.sidebarService.open();
   }
 }

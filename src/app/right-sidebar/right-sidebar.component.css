@@ -1,0 +1,35 @@
+mat-card-title, mat-card-subtitle{
+  padding: 0 16px;
+}
+mat-card-subtitle{
+  margin-top: 16px;
+}
+mat-card-title{
+  margin-bottom: 16px;
+}
+
+.mat-list-item{
+  cursor: pointer;
+}
+.mat-list-item:hover{
+  background-color: #F5F5F5;
+}
+
+/deep/ .mat-list-progress .mat-list-item-content{
+  flex-direction: column !important;
+  align-items: flex-start !important;
+
+}
+
+/deep/ .mat-list-base .mat-list-item .mat-list-text{
+  flex: unset !important;
+  margin-top: 10px !important;
+}
+
+img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
