@@ -1,7 +1,7 @@
 import { OverlayRef } from '@angular/cdk/overlay';
-import { RightSidebarComponent } from './right-sidebar.component';
 import { take, filter } from 'rxjs/operators';
 import {Observable, Subject} from "rxjs";
+import {NotificationsSidebarComponent} from "./notifications-sidebar.component";
 
 export class SidebarOverlayRef {
   constructor(private overlayRef: OverlayRef) {}
@@ -9,8 +9,7 @@ export class SidebarOverlayRef {
   private _beforeClose = new Subject<void>();
   private _afterClosed = new Subject<void>();
 
-  componentInstance: RightSidebarComponent;
-
+  componentInstance: NotificationsSidebarComponent;
 
   afterClosed(): Observable<void> {
     return this._afterClosed.asObservable();

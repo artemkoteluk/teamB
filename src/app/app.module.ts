@@ -22,11 +22,15 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SidebarService} from "./right-sidebar/sidebar.service";
-import {RightSidebarComponent} from "./right-sidebar/right-sidebar.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {DatePipe} from "@angular/common";
+import { SettingsSidebarComponent } from './settings-sidebar/settings-sidebar.component';
+import { NotificationsSidebarComponent } from './notifications-sidebar/notifications-sidebar.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const routes: Routes = [
   {
@@ -71,7 +75,8 @@ const routerOptions: ExtraOptions = {
     declarations: [
         AppComponent,
         DashboardComponent,
-        RightSidebarComponent
+        SettingsSidebarComponent,
+        NotificationsSidebarComponent
     ],
   imports: [
     BrowserModule,
@@ -102,6 +107,9 @@ const routerOptions: ExtraOptions = {
     MatTabsModule,
     MatListModule,
     MatProgressBarModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
   ],
     providers: [MatDialog, Overlay, MatSnackBar, SidebarService, DatePipe ],
     bootstrap: [AppComponent]

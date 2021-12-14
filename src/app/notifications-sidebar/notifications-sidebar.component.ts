@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {slideInOut} from "./sidebar-animation";
+import {slideInOut} from "../right-sidebar/sidebar-animation";
 import {DatePipe} from "@angular/common";
 
 export interface Section {
@@ -15,12 +15,12 @@ export interface Stat {
 }
 
 @Component({
-  selector: 'app-right-sidebar',
-  templateUrl: './right-sidebar.component.html',
-  styleUrls: ['./right-sidebar.component.css'],
+  selector: 'app-notifications-sidebar',
+  templateUrl: './notifications-sidebar.component.html',
+  styleUrls: ['./notifications-sidebar.component.css'],
   animations: [slideInOut],
 })
-export class RightSidebarComponent implements OnInit {
+export class NotificationsSidebarComponent implements OnInit {
 
   myEvents: Section[] = [
     {
@@ -99,7 +99,6 @@ export class RightSidebarComponent implements OnInit {
       time: 'Love you... -- Hope we can see us again soon :)',
     },
   ];
-
 
   constructor(public datepipe: DatePipe) { }
 
