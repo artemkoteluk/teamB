@@ -6,11 +6,13 @@
         <input type="text" matInput formControlName="routeGroup" [matAutocomplete]="autoGroup" placeholder="Search...">
 
         <mat-autocomplete #autoGroup="matAutocomplete">
+
           <mat-optgroup *ngFor="let group of routeGroupOptions | async" [label]="group.groupName">
-            <mat-option *ngFor="let name of group.routeNames" [value]="name">
-              {{name}}
+           <mat-option *ngFor="let route of group.routes" [value]="route.name" (click)="navbarNavigate(route.route)">
+              {{route.name}}
             </mat-option>
           </mat-optgroup>
+
         </mat-autocomplete>
       </mat-form-field>
     </form>
@@ -22,7 +24,7 @@
   <button class="toolbar-btn b-left b-small" mat-icon-button (click)="Fullscreen()"><mat-icon>fullscreen</mat-icon></button>
   <button class="toolbar-btn b-left b-small" mat-icon-button [matMenuTriggerFor]="header_menu1"><mat-icon matBadge="{{notifications.length?notifications.length:''}}">notifications_active</mat-icon></button>
   <button class="toolbar-btn b-left menu-btn" mat-icon-button [matMenuTriggerFor]="header_menu2" (menuOpened)="menuToggle()" (menuClosed)="menuToggle()"><img src="assets/images/Pikachu.png" alt="logo">Team B<mat-icon>keyboard_arrow_{{menuOpened?'up':'down'}}</mat-icon></button>
-  <button class="toolbar-btn b-left b-small" mat-icon-button><mat-icon>format_align_right</mat-icon></button>
+  <button class="toolbar-btn b-left b-small" mat-icon-button (click)="openRightSidebar()"><mat-icon>format_align_right</mat-icon></button>
 </mat-toolbar>
 
 <mat-menu #header_menu1="matMenu" xPosition="before" yPosition="below">
