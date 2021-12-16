@@ -1,96 +1,100 @@
-<div class="foreground">
-  <mat-card>
-    <div class="example-container">
-      <mat-drawer mode="side" opened>
-        <div class="toolbar">
-          <img [src]='myAvatar' class="avatar" alt="avatar">
-          <div class="buttons">
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item>
-                <mat-icon>account_circle</mat-icon>
-                <span>Profile</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>settings</mat-icon>
-                <span>Settings</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>help</mat-icon>
-                <span>Help</span>
-              </button>
-              <mat-divider></mat-divider>
-              <button mat-menu-item>
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-              </button>
-            </mat-menu>
-          </div>
-        </div>
-        <mat-selection-list #usersel [multiple]="false">
-          <mat-list-option *ngFor="let user of users" [value]="user"
-                           (click)='currentConversation = usersel.selectedOptions.selected[0]?.value'>
-            <img mat-list-icon class="avatar" [src]="user.avatar" alt="avatar">
-            <div mat-line> {{user.name}} </div>
-            <div mat-line class="secondary-text"> {{user.status}} </div>
-          </mat-list-option>
-        </mat-selection-list>
-      </mat-drawer>
+<div class="host-wrapper">
+  <div style="position: absolute; top:0; bottom: 0; right: 0; left: 0;" class="host">
+    <div class="foreground">
+      <mat-card>
+        <div class="example-container">
+          <mat-drawer mode="side" opened>
+            <div class="toolbar">
+              <img [src]='myAvatar' class="avatar" alt="avatar">
+              <div class="buttons">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Profile</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>help</mat-icon>
+                    <span>Help</span>
+                  </button>
+                  <mat-divider></mat-divider>
+                  <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+            <mat-selection-list #usersel [multiple]="false">
+              <mat-list-option *ngFor="let user of users" [value]="user"
+                (click)='currentConversation = usersel.selectedOptions.selected[0]?.value'>
+                <img mat-list-icon class="avatar" [src]="user.avatar" alt="avatar">
+                <div mat-line> {{user.name}} </div>
+                <div mat-line class="secondary-text"> {{user.status}} </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-drawer>
 
-      <div class="chat-page">
-        <div class="toolbar">
-          <div class="toolbar-user">
-            <img [src]='currentConversation.avatar' class="avatar" alt="avatar">
-            <div class="toolbar-user-lines">
-              <div>{{currentConversation.name}}</div>
-              <div class="secondary-text">Online</div>
+          <div class="chat-page">
+            <div class="toolbar">
+              <div class="toolbar-user">
+                <img [src]='currentConversation.avatar' class="avatar" alt="avatar">
+                <div class="toolbar-user-lines">
+                  <div>{{currentConversation.name}}</div>
+                  <div class="secondary-text">Online</div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button mat-icon-button>
+                  <mat-icon>attach_file</mat-icon>
+                </button>
+                <button mat-icon-button [matMenuTriggerFor]="menu2">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu2="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Contact Info</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>volume_mute</mat-icon>
+                    <span>Mute Chat</span>
+                  </button>
+                  <mat-divider></mat-divider>
+                  <button mat-menu-item (click)='currentConversation.messages = []'>
+                    <mat-icon>clear_all</mat-icon>
+                    <span>Clear Messages</span>
+                  </button>
+                </mat-menu>
+              </div>
             </div>
-          </div>
-          <div class="buttons">
-            <button mat-icon-button>
-              <mat-icon>attach_file</mat-icon>
-            </button>
-            <button mat-icon-button [matMenuTriggerFor]="menu2">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu2="matMenu">
-              <button mat-menu-item>
-                <mat-icon>account_circle</mat-icon>
-                <span>Contact Info</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>volume_mute</mat-icon>
-                <span>Mute Chat</span>
-              </button>
-              <mat-divider></mat-divider>
-              <button mat-menu-item (click)='currentConversation.messages = []'>
-                <mat-icon>clear_all</mat-icon>
-                <span>Clear Messages</span>
-              </button>
-            </mat-menu>
+            <div class="chat-content-wrapper">
+              <div class="chat-content">
+                <div [class]="message.mine ? 'message mine' : 'message'"
+                  *ngFor="let message of currentConversation.messages">
+                  <img class="avatar" [src]="message.mine ? myAvatar : currentConversation.avatar" alt="avatar">
+                  <span class="mat-card">{{message.message}}</span>
+                </div>
+              </div>
+            </div>
+            <form class="message-box" [formGroup]="MessageForm">
+              <mat-form-field appearance="fill">
+                <mat-label>Write your message</mat-label>
+                <input [formControlName]="'message'" matInput (keyup.enter)="sendClick()">
+                <button mat-icon-button type="button" matSuffix (click)='sendClick()'>
+                  <mat-icon>send</mat-icon>
+                </button>
+              </mat-form-field>
+            </form>
           </div>
         </div>
-        <div class="chat-content-wrapper">
-          <div class="chat-content">
-            <div [class]="message.mine ? 'message mine' : 'message'"
-                 *ngFor="let message of currentConversation.messages">
-              <img class="avatar" [src]="message.mine ? myAvatar : currentConversation.avatar" alt="avatar">
-              <span class="mat-card">{{message.message}}</span>
-            </div>
-          </div>
-        </div>
-        <form class="message-box" [formGroup]="MessageForm">
-          <mat-form-field appearance="fill">
-            <mat-label>Write your message</mat-label>
-            <input [formControlName]="'message'" matInput (keyup.enter)="sendClick()">
-            <button mat-icon-button type="button" matSuffix (click)='sendClick()'>
-              <mat-icon>send</mat-icon>
-            </button>
-          </mat-form-field>
-        </form>
-      </div>
+      </mat-card>
     </div>
-  </mat-card>
+  </div>
 </div>
