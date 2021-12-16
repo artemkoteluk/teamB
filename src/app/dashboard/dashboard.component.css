@@ -9,30 +9,33 @@
 }
 
 @media screen and (min-width: 780px) {
-  .group-1>*,
-  .group-2>* {
+  .group-1 > *,
+  .group-2 > * {
     display: flex;
   }
 }
 
-.group-1>*,
-.group-2>*,
-.group-3>* {
+.group-1 > *,
+.group-2 > *,
+.group-3 > * {
   flex: 1;
 }
 
-.group-1>*>* {
+.group-1 > * > * {
   flex: 1;
 }
-.group-1 .mat-card-subtitle .mat-icon{
+
+.group-1 .mat-card-subtitle .mat-icon {
   transform: scale(0.75);
 }
-.group-1 .mat-card-subtitle{
+
+.group-1 .mat-card-subtitle {
   display: flex;
   align-items: center;
   color: white;
 }
-.group-2-2>* {
+
+.group-2-2 > * {
   display: flex;
   flex: 1
 }
@@ -41,7 +44,7 @@
   flex-direction: column;
 }
 
-.group-2-2-1>* {
+.group-2-2-1 > * {
   display: flex;
 }
 
@@ -55,9 +58,10 @@
   }
 }
 
-.group-3-1-2>* {
+.group-3-1-2 > * {
   flex: 1;
 }
+
 /* </Groups> */
 /* <Cards> */
 
@@ -72,55 +76,67 @@
   margin: .5rem;
 }
 
-.total-sales{
-  background-color: #3f51b5 ;
+.total-sales {
+  background-color: #3f51b5;
   color: white;
 
 }
-.total-sales .ngx-wrapper{
+
+.total-sales .ngx-wrapper {
   height: 150px;
 }
-.visits{
-  background-color: #03a9f4 ;
+
+.visits {
+  background-color: #03a9f4;
   color: white;
 }
-.visits .ngx-wrapper{
+
+.visits .ngx-wrapper {
   height: 150px;
 }
-.total-clicks{
-  background-color: #4caf50 ;
+
+.total-clicks {
+  background-color: #4caf50;
   color: white;
 }
-.total-clicks .ngx-wrapper{
+
+.total-clicks .ngx-wrapper {
   height: 150px;
 }
+
 .conversions {
   background-color: #009688;
   color: white;
 
 }
-.conversions .ngx-wrapper{
+
+.conversions .ngx-wrapper {
   height: 150px;
 }
+
 .usage {
   background-color: white;
 }
-.usage .ngx-wrapper{
+
+.usage .ngx-wrapper {
   height: 300px;
 }
+
 .sales-summary {
   background: white;
 }
+
 .sales-summary .ngx-wrapper {
   height: 100%;
 }
+
 @media screen and (max-width: 1449px) {
   .sales-summary .ngx-wrapper {
     height: 250px;
   }
 }
 
-.customers{
+.customers {
   color: white;
   background-color: #009688;
 }
@@ -129,64 +145,78 @@
   background-color: #4285f4;
   color: white;
 }
+
 .active-users .ngx-wrapper {
   height: 100%;
   flex: 1;
 }
-@media screen and (max-width:  779px) {
+
+@media screen and (max-width: 779px) {
   .active-users .ngx-wrapper {
     height: 250px;
   }
 }
-.active-users-number{
+
+.active-users-number {
   font-weight: 300;
   font-size: 45px;
   line-height: 48px;
   margin-top: 12px;
 }
-.active-users .card-content{
+
+.active-users .card-content {
   padding: 16px;
   display: flex;
   flex: 1;
   flex-direction: column;
 }
-.active-pages-scroller{
+
+.active-pages-scroller {
   max-height: 75px;
   overflow-y: auto;
 }
-.active-page{
+
+.active-page {
   margin: 5px 0;
 }
+
 .sales-by-country {
   background-color: white;
 }
+
 .sales-by-country .ngx-wrapper {
   height: 250px;
 }
+
 .top-categories {
   background: white;
 }
+
 .top-categories .ngx-wrapper {
-  height:600px;
+  height: 600px;
 }
-.top-categories-stats{
+
+.top-categories-stats {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: -16px;
   padding: 16px;
 }
+
 .top-categories-stats .mat-divider {
   margin-bottom: -10px;
   margin-top: -10px;
 
 }
-.top-categories-stat-name{
+
+.top-categories-stat-name {
   color: #0000008a;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
 }
-.top-categories-stat-number{
+
+.top-categories-stat-number {
   font-weight: 500;
   font-size: 18px;
   line-height: 26px;
@@ -198,7 +228,8 @@
   margin: 0.5rem;
   text-align: center;
 }
-.widgets-available-name{
+
+.widgets-available-name {
   color: #0000008a;
   margin-bottom: 12px;
   font-size: 22px;
@@ -209,19 +240,23 @@
 .recent-sales {
   background: white;
 }
+
 .recent-sales .ngx-wrapper {
   height: 150px;
   margin-left: -52px;
   margin-right: -52px;
   margin-bottom: -26px;
 }
-.recent-sales-table{
+
+.recent-sales-table {
   margin-left: -16px;
   margin-right: -16px;
 }
+
 .recent-sales::ng-deep thead {
   background-color: #f5f5f5;
 }
+
 .recent-sales table {
   width: 100%;
 }
@@ -234,19 +269,22 @@
 .recent-sales td, th {
   width: 25%;
 }
-.recent-sales .mat-paginator{
+
+.recent-sales .mat-paginator {
   background-color: #f5f5f5;
 }
+
 .map {
   background: lightgrey;
   height: 450px;
 }
 
 /* </Cards> */
-.ngx-wrapper{
+.ngx-wrapper {
   position: relative;
 }
-.ngx-wrapper>*{
+
+.ngx-wrapper > * {
   position: absolute;
   top: 0;
   right: 0;
@@ -254,11 +292,12 @@
   bottom: 0;
 }
 
-.up{
+.up {
   color: #7cb342;
 
 }
-.down{
+
+.down {
   color: #f55043;
 }
 
@@ -303,86 +342,97 @@
   margin-right: -0.25rem;
 }
 
-.sales-summary .card-content{
+.sales-summary .card-content {
   flex: 1;
   margin-left: -52px;
   margin-right: -52px;
   margin-bottom: -26px;
 }
-.sales-summary-infos{
+
+.sales-summary-infos {
   display: flex;
   padding: 0 16px;
 
 }
-.sales-summary-info{
-  flex:1;
+
+.sales-summary-info {
+  flex: 1;
 
 }
-.sales-summary-info-number{
+
+.sales-summary-info-number {
   font-weight: 400;
   font-size: 34px;
   line-height: 40px;
 }
-.sales-summary-info-name{
+
+.sales-summary-info-name {
   color: #757575;
 
 }
 
-.customers .card-content{
-  display:flex ;
+.customers .card-content {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.customer-icon{
+
+.customer-icon {
   transform: scale(1.5);
 }
-.customer-number{
+
+.customer-number {
   font-weight: 400;
   font-size: 34px;
   line-height: 40px;
 }
+
 .header-image {
   background-image: url('https://static-cdn.jtvnw.net/emoticons/v2/1619015/static/light/3.0');
   background-size: cover;
 }
 
-.mat-card-title{
+.mat-card-title {
   font-weight: 400;
   font-size: 16px;
 }
+
 /* <NGX-Charts костыли> */
 
-*::ng-deep .advanced-pie-legend .total-value{
+*::ng-deep .advanced-pie-legend .total-value {
   line-height: 36px;
 }
 
 *::ng-deep .advanced-pie-legend .total-label {
-  margin-bottom: 5px!important;
+  margin-bottom: 5px !important;
 }
 
 *::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item .item-value {
-  margin-top: 0!important;
-  margin-bottom: 3px!important;
+  margin-top: 0 !important;
+  margin-bottom: 3px !important;
 }
+
 *::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item .item-color {
-  height: 56px!important;
+  height: 56px !important;
 }
 
 
 *::ng-deep svg.ngx-charts g[ngx-charts-tooltip-area],
-*::ng-deep svg.ngx-charts g[ngx-charts-tooltip-area]+g,
-*::ng-deep svg.ngx-charts g[ngx-charts-tooltip-area]+g+g {
+*::ng-deep svg.ngx-charts g[ngx-charts-tooltip-area] + g,
+*::ng-deep svg.ngx-charts g[ngx-charts-tooltip-area] + g + g {
   opacity: 0;
 }
 
-.usage::ng-deep .ngx-wrapper svg>g.line-chart>g[ngx-charts-y-axis]>g.y.axis>g[ngx-charts-y-axis-ticks]>g:not(.ng-star-inserted) text {
+.usage::ng-deep .ngx-wrapper svg > g.line-chart > g[ngx-charts-y-axis] > g.y.axis > g[ngx-charts-y-axis-ticks] > g:not(.ng-star-inserted) text {
   transform: translateX(-40px);
   text-anchor: start;
 }
-.usage::ng-deep .ngx-wrapper svg>g.line-chart>g[ngx-charts-y-axis]>g.y.axis>g[ngx-charts-y-axis-ticks]>g:not(.ng-star-inserted) {
+
+.usage::ng-deep .ngx-wrapper svg > g.line-chart > g[ngx-charts-y-axis] > g.y.axis > g[ngx-charts-y-axis-ticks] > g:not(.ng-star-inserted) {
   transform: translateX(100%);
 }
-.usage::ng-deep .ngx-wrapper svg>g.line-chart > g {
+
+.usage::ng-deep .ngx-wrapper svg > g.line-chart > g {
   transform: translateX(-40px);
 }
 

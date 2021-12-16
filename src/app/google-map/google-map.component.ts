@@ -18,7 +18,7 @@ export class GoogleMapComponent implements OnInit {
 
   }
 
-  private mapSpoof() {
+  private mapSpoof(): void {
     globalThis.google = null;
     //spoof API key domain check
     const substringOriginal = globalThis.String.prototype.substring;
@@ -30,7 +30,7 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
-  private mapCreate() {
+  private mapCreate(): void {
     globalThis.window['initMap'] = GoogleMapComponent.mapInit;
     if (globalThis.google?.maps == null) {
       this.script = globalThis.document.createElement('script');
@@ -43,7 +43,7 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
-  private static mapInit() {
+  private static mapInit(): void {
     // JS API is loaded and available
     const map = new globalThis.google.maps.Map(globalThis.document.getElementById("map") as HTMLElement, {
       center: {lat: 40.714602, lng: -74.005973},

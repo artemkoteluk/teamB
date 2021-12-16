@@ -1,18 +1,14 @@
-import { Injectable, Injector, ComponentRef, ComponentFactoryResolver } from '@angular/core';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import {Injectable, Injector, ComponentRef, ComponentFactoryResolver} from '@angular/core';
+import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal, PortalInjector} from '@angular/cdk/portal';
 
-import { SidebarOverlayRef } from '../notifications-sidebar/sidebar-overlay-ref';
+import {SidebarOverlayRef} from '../notifications-sidebar/sidebar-overlay-ref';
 import {SettingsSidebarComponent} from "../settings-sidebar/settings-sidebar.component";
 import {NotificationsSidebarComponent} from "../notifications-sidebar/notifications-sidebar.component";
+import {SidebarInterface} from "./sidebar-interface";
 
-interface SidebarConfig {
-  panelClass?: string;
-  hasBackdrop?: boolean;
-  backdropClass?: string;
-}
 
-const DEFAULT_CONFIG: SidebarConfig = {
+const DEFAULT_CONFIG: SidebarInterface = {
   hasBackdrop: true,
   backdropClass: 'sidebar-backdrop',
   panelClass: 'sidebar-panel',
@@ -24,9 +20,10 @@ export class SidebarService {
     private injector: Injector,
     private overlay: Overlay,
     private componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  ) {
+  }
 
-  open(sidebarMode: boolean) {
+  public open(sidebarMode: boolean): OverlayRef {
     // Override default configuration
     const sidebarConfig = DEFAULT_CONFIG;
 
@@ -36,17 +33,15 @@ export class SidebarService {
     // Instantiate remote control
     const sidebarRef = new SidebarOverlayRef(overlayRef);
 
-    let overlayComponent:any ;
-    if(sidebarMode)
-    {
+    let overlayComponent: any;
+    if (sidebarMode) {
       overlayComponent = this.attachSidebarContainer(
         NotificationsSidebarComponent,
         overlayRef,
         sidebarConfig,
         sidebarRef
       );
-    }
-    else{
+    } else {
       overlayComponent = this.attachSidebarContainer(
         SettingsSidebarComponent,
         overlayRef,
@@ -64,17 +59,12 @@ export class SidebarService {
     return overlayRef;
   }
 
-  private createOverlay(config: SidebarConfig) {
+  private createOverlay(config: SidebarInterface): OverlayRef {
     // const overlayConfig = this.getOverlayConfig(config);
     return this.overlay.create(config);
   }
 
-  private attachSidebarContainer(
-    component,
-    overlayRef: OverlayRef,
-    config: SidebarConfig,
-    sidebarRef: SidebarOverlayRef
-  ) {
+  private attachSidebarContainer(component, overlayRef: OverlayRef, config: SidebarInterface, sidebarRef: SidebarOverlayRef): ComponentRef<any> {
     const injector = this.createInjector(config, sidebarRef);
 
     const containerPortal = new ComponentPortal(component, null, injector);
@@ -83,7 +73,7 @@ export class SidebarService {
     return containerRef.instance;
   }
 
-  private createInjector(config: SidebarConfig, sidebarRef: SidebarOverlayRef): PortalInjector {
+  private createInjector(config: SidebarInterface, sidebarRef: SidebarOverlayRef): PortalInjector {
     const injectionTokens = new WeakMap();
 
     injectionTokens.set(SidebarOverlayRef, sidebarRef);
@@ -91,7 +81,7 @@ export class SidebarService {
     return new PortalInjector(this.injector, injectionTokens);
   }
 
-  private getOverlayConfig(config: SidebarConfig): OverlayConfig {
+  private getOverlayConfig(config: SidebarInterface): OverlayConfig {
     const positionStrategy = this.overlay
       .position()
       .global()

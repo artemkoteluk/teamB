@@ -1,4 +1,4 @@
-.dragdrop_container{
+.dragdrop_container {
   display: flex;
   flex-direction: row;
   place-content: flex-start;
@@ -33,12 +33,14 @@
   background: white;
   font-size: 14px;
 }
-.to-do-box{
+
+.to-do-box {
   flex-direction: column;
   place-content: flex-start center;
   align-items: flex-start;
 }
-.done-box{
+
+.done-box {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -69,7 +71,7 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.dragdrop-subtext{
+.dragdrop-subtext {
   font-size: 12px;
   color: gray;
 }

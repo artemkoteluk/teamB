@@ -1,8 +1,9 @@
 @media screen and (min-width: 950px) {
-  :host>* {
+  :host > * {
     display: flex;
   }
-  :host>*>* {
+
+  :host > * > * {
     flex: 1;
     display: flex;
   }
@@ -23,79 +24,100 @@
   margin: .5rem;
   padding: 1.5rem;
 }
-.mat-card-title{
+
+.mat-card-title {
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
 }
-.mat-card-subtitle{
+
+.mat-card-subtitle {
   font-weight: 400;
   font-size: 13px;
   line-height: 20px;
 }
-.basic-forms-names{
+
+.basic-forms-names {
   display: flex;
 }
-.basic-forms-names>*{
+
+.basic-forms-names > * {
   flex: 1;
 }
-.basic-forms-names>*:last-child{
+
+.basic-forms-names > *:last-child {
   margin-left: 15px;
 }
-.advanced-forms-colors{
+
+.advanced-forms-colors {
   display: flex;
 }
-.advanced-forms-colors>*{
+
+.advanced-forms-colors > * {
   flex: 1;
 }
-.advanced-forms-colors>*:not(:first-child){
+
+.advanced-forms-colors > *:not(:first-child) {
   margin-left: 15px;
 }
-.standard-input-style .mat-form-field{
+
+.standard-input-style .mat-form-field {
   padding-bottom: 1.34375em;
   padding-top: .25em;
 }
-.card-text{
+
+.card-text {
   margin-bottom: 8px;
 }
-.form-slider-sliders{
+
+.form-slider-sliders {
   display: flex;
 
 }
-.form-slider-sliders>*{
+
+.form-slider-sliders > * {
   flex: 1;
 }
-.form-slider-sliders>*:not(:first-child){
+
+.form-slider-sliders > *:not(:first-child) {
   margin-left: 15px;
 }
-.form-checkbox .mat-checkbox{
+
+.form-checkbox .mat-checkbox {
   margin-bottom: 15px;
 }
-.form-checkbox-theming .mat-checkbox{
+
+.form-checkbox-theming .mat-checkbox {
   margin-bottom: 15px;
 }
-.form-radio-button .mat-radio-button{
+
+.form-radio-button .mat-radio-button {
   margin-right: 15px;
 
 }
-.form-radio-button .mat-radio-group{
+
+.form-radio-button .mat-radio-group {
   margin-bottom: 15px;
 }
-.form-slide-toggle-slides>*:last-child{
+
+.form-slide-toggle-slides > *:last-child {
   align-items: end;
 
 }
-.form-slide-toggle-slides{
+
+.form-slide-toggle-slides {
   display: flex;
   justify-content: space-between;
 
 }
-.form-slide-toggle-slides>*{
+
+.form-slide-toggle-slides > * {
   display: flex;
   flex-direction: column;
 
 }
-*::ng-deep .mat-card-header-text{
+
+*::ng-deep .mat-card-header-text {
   margin-right: 0;
   margin-left: 0;
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-level3',
@@ -8,12 +8,13 @@ import { Router } from "@angular/router";
 })
 export class Level3Component implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  navigateTo(path: string) {
+  navigateTo(path: string): void {
     this.router.navigate([path]);
   }
 

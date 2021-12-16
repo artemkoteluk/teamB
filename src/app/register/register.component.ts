@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -9,12 +9,28 @@ import { Router } from "@angular/router";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  RegisterForm;
-  hide = true;
-  hide_repeat = true;
-  acceptTOS = false;
+  public RegisterForm: FormGroup;
+  public hide: boolean = true;
+  public hide_repeat: boolean = true;
+  public acceptTOS: boolean = false;
+
   constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.RegisterForm = this.formBuilder.group({
+    this.RegisterForm = this.registerFormCreate();
+  }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.navigateTo('main/dashboard')
+  }
+
+  public navigateTo(path: string): void {
+    this.router.navigate([path])
+  }
+
+  private registerFormCreate(): FormGroup {
+    return this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -22,16 +38,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-  onSubmit(): void {
-    this.router.navigate(['main/dashboard'])
-  }
-  navigateTo(path: string) {
-    this.router.navigate([path])
-  }
-  acceptTOSChanged(check: boolean) {
-    console.log('Accept TOS: ' + check);
+  public acceptTOSChanged(check: boolean) {
   }
 
 }

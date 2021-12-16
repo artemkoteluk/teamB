@@ -1,13 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {slideInOut} from "../right-sidebar/sidebar-animation";
-
-export interface ThemeSettings {
-  name: string;
-  active: boolean;
-  activeBtnColor: string;
-  nonActiveBtnColor: string;
-  iconColor: string;
-}
+import {ThemeInterface} from "./theme-interface";
 
 
 @Component({
@@ -18,7 +11,7 @@ export interface ThemeSettings {
 })
 export class SettingsSidebarComponent implements OnInit {
 
-  themeSettings: ThemeSettings[] = [
+ public themeSettings: ThemeInterface[] = [
     {
       name: 'Default',
       active: true,
@@ -49,7 +42,8 @@ export class SettingsSidebarComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -58,25 +52,24 @@ export class SettingsSidebarComponent implements OnInit {
 
   animationState: 'void' | 'enter' | 'leave' = 'enter';
 
-  onAnimationStart(event: AnimationEvent) {
+  public onAnimationStart(event: AnimationEvent): void {
     this.animationStateChanged.emit(event);
   }
 
-  onAnimationDone(event: AnimationEvent) {
+  public onAnimationDone(event: AnimationEvent): void {
     this.animationStateChanged.emit(event);
   }
 
-  startExitAnimation() {
+  public startExitAnimation(): void {
     this.animationState = 'leave';
   }
 
-  changeTheme(index: number) {
+  public changeTheme(index: number): void {
     for (let i = 0; i < this.themeSettings.length; i++) {
-      if(i==index){
-        this.themeSettings[i].active=true;
-      }
-      else{
-        this.themeSettings[i].active=false;
+      if (i == index) {
+        this.themeSettings[i].active = true;
+      } else {
+        this.themeSettings[i].active = false;
       }
     }
   }

@@ -1,18 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {slideInOut} from "../right-sidebar/sidebar-animation";
 import {DatePipe} from "@angular/common";
-
-export interface Section {
-  name: string;
-  time: string;
-}
-export interface Stat {
-  name: string;
-  currentVal: number;
-  maxVal: number;
-  sign: string;
-  color: string;
-}
+import {SectionInterface} from "./section-interface";
+import {StatInterface} from "./stat-interface";
+import {myEvents, todos, statistics, notifications} from "./notifications-data"
 
 @Component({
   selector: 'app-notifications-sidebar',
@@ -22,85 +13,13 @@ export interface Stat {
 })
 export class NotificationsSidebarComponent implements OnInit {
 
-  myEvents: Section[] = [
-    {
-      name: 'Business Meeting',
-      time: 'In 16 Minutes, Meeting Room',
-    },
-    {
-      name: 'Ask for Vacation',
-      time: '12:00 PM',
-    },
-    {
-      name: 'Dinner with Sophie',
-      time: '18:30 PM',
-    },
-    {
-      name: 'Deadline for Project X',
-      time: '21:00 PM',
-    },
-  ];
-  todos: Section[] = [
-    {
-      name: 'Invite Jack to play golf',
-      time: 'Added: 6 hours ago',
-    },
-    {
-      name: 'Get to know Angular more',
-      time: 'Added: 2 days ago',
-    },
-    {
-      name: 'Configure that new router',
-      time: 'Added: 5 days ago',
-    },
-  ];
-  statistics: Stat[] = [
-    {
-      name: 'CPU Load',
-      currentVal: 71,
-      maxVal: 100,
-      sign: '%',
-      color: 'primary'
-    },
-    {
-      name: 'RAM Usage',
-      currentVal: 6175,
-      maxVal: 16364,
-      sign: 'MB',
-      color: 'accent'
-    },
-    {
-      name: 'CPU Temp',
-      currentVal:43,
-      maxVal: 80,
-      sign: '°',
-      color: 'warn'
-    },
-  ];
-  notifications: Section[] = [
-    {
-      name: 'Sophie',
-      time: 'Dinner? -- Are we still going out tonight?',
-    },
-    {
-      name: 'Jack',
-      time: 'Golf weekend -- Hey! You wanted to go play Golf?',
-    },
-    {
-      name: 'Cody',
-      time: 'Code Quality -- Love your newest theme, so clean and slick!',
-    },
-    {
-      name: 'James',
-      time: 'Gaming? -- You wanna throw a party this weekend?',
-    },
-    {
-      name: 'Jessica',
-      time: 'Love you... -- Hope we can see us again soon :)',
-    },
-  ];
+  myEvents: SectionInterface[] = myEvents;
+  todos: SectionInterface[] = todos;
+  statistics: StatInterface[] = statistics;
+  notifications: SectionInterface[] = notifications;
 
-  constructor(public datepipe: DatePipe) { }
+  constructor(public datepipe: DatePipe) {
+  }
 
   ngOnInit(): void {
   }
@@ -109,19 +28,19 @@ export class NotificationsSidebarComponent implements OnInit {
 
   animationState: 'void' | 'enter' | 'leave' = 'enter';
 
-  onAnimationStart(event: AnimationEvent) {
+  public onAnimationStart(event: AnimationEvent): void {
     this.animationStateChanged.emit(event);
   }
 
-  onAnimationDone(event: AnimationEvent) {
+  public onAnimationDone(event: AnimationEvent): void {
     this.animationStateChanged.emit(event);
   }
 
-  startExitAnimation() {
+  public startExitAnimation(): void {
     this.animationState = 'leave';
   }
 
-  getDateFormat() {
+  public getDateFormat(): string {
     return this.datepipe.transform(new Date(), 'EEEE, MMMM d');
   }
 

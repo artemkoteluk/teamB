@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {NavbarComponent} from "./navbar.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -34,8 +34,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     ReactiveFormsModule,
     MatAutocompleteModule,
   ],
-  exports:[
+  exports: [
     NavbarComponent
   ]
 })
-export class NavbarModule { }
+export class NavbarModule {
+}

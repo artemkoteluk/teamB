@@ -95,15 +95,19 @@
           <div class="FormContent">
 
             <div class="FormHeader">You're almost there!</div>
-            <div class="FormSubTitle">To finish registration, accept our terms of service and click on "Create Account".</div>
+            <div class="FormSubTitle">
+              To finish registration, accept our terms of service and click on "Create Account".
+            </div>
             <mat-checkbox formControlName="confirm" required> I agree to the terms of service and the usual stuff. *
             </mat-checkbox>
           </div>
           <mat-divider class="FormDivider" inset></mat-divider>
           <div class="FormControls">
             <button mat-button color="primary" matStepperPrevious>PREVIOUS</button>
-            <button mat-raised-button color="primary" (click)="openSnackBar('Hooray! You successfully created your account.')"
-                    [disabled]="!thirdFormGroup.valid">CREATE ACCOUNT
+            <button mat-raised-button color="primary"
+                    (click)="openSnackBar('Hooray! You successfully created your account.')"
+                    [disabled]="!thirdFormGroup.valid">
+              CREATE ACCOUNT
             </button>
           </div>
         </form>
@@ -163,7 +167,8 @@
           <div class="FormControls">
 
             <button mat-button color="primary" (click)="stepper.reset()">Reset</button>
-            <button mat-raised-button color="primary" matStepperNext [disabled]="!verticalFirstFormGroup.valid">Next</button>
+            <button mat-raised-button color="primary" matStepperNext [disabled]="!verticalFirstFormGroup.valid">Next
+            </button>
           </div>
 
         </form>
@@ -197,7 +202,8 @@
 
           <div class="FormControls">
             <button mat-button color="primary" matStepperPrevious>PREVIOUS</button>
-            <button mat-raised-button color="primary" matStepperNext [disabled]="!verticalSecondFormGroup.valid">Next</button>
+            <button mat-raised-button color="primary" matStepperNext [disabled]="!verticalSecondFormGroup.valid">Next
+            </button>
           </div>
 
         </form>
@@ -208,15 +214,19 @@
           <div class="FormContent">
 
             <div class="FormHeader">You're almost there!</div>
-            <div class="FormSubTitle">To finish registration, accept our terms of service and click on "Create Account".</div>
+            <div class="FormSubTitle">
+              To finish registration, accept our terms of service and click on "Create Account".
+            </div>
             <mat-checkbox formControlName="confirm" required> I agree to the terms of service and the usual stuff. *
             </mat-checkbox>
           </div>
           <mat-divider class="FormDivider" inset></mat-divider>
           <div class="FormControls">
             <button mat-button color="primary" matStepperPrevious>PREVIOUS</button>
-            <button mat-raised-button color="primary" (click)="openSnackBar('Hooray! You successfully created your account.')"
-                    [disabled]="!verticalThirdFormGroup.valid">CREATE ACCOUNT
+            <button mat-raised-button color="primary"
+                    (click)="openSnackBar('Hooray! You successfully created your account.')"
+                    [disabled]="!verticalThirdFormGroup.valid">
+              CREATE ACCOUNT
             </button>
           </div>
         </form>

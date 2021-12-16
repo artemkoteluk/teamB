@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {FormWizardComponent} from "./form-wizard.component";
 import {MatStepperModule} from "@angular/material/stepper";
@@ -14,8 +14,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 
-const routes:Routes=[
-  {path:'',component: FormWizardComponent}
+const routes: Routes = [
+  {path: '', component: FormWizardComponent}
 ]
 
 @NgModule({
@@ -37,4 +37,5 @@ const routes:Routes=[
 
   ]
 })
-export class FormWizardModule { }
+export class FormWizardModule {
+}

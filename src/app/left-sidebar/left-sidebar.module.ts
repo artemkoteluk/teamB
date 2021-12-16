@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {LeftSidebarComponent} from "./left-sidebar.component";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatCheckboxModule} from "@angular/material/checkbox";
@@ -17,6 +17,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatIconModule,
     MatExpansionModule
   ],
-  exports:[LeftSidebarComponent]
+  exports: [LeftSidebarComponent]
 })
-export class LeftSidebarModule { }
+export class LeftSidebarModule {
+}

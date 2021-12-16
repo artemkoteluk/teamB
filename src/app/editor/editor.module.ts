@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {EditorComponent} from "./editor.component";
 import {QuillModule} from "ngx-quill";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-const routes:Routes=[
-  {path:'',component: EditorComponent}
+const routes: Routes = [
+  {path: '', component: EditorComponent}
 ]
 
 @NgModule({
@@ -19,4 +19,5 @@ const routes:Routes=[
     ReactiveFormsModule
   ]
 })
-export class EditorModule { }
+export class EditorModule {
+}

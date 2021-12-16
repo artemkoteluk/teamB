@@ -34,7 +34,7 @@
         </mat-form-field>
       </div>
       <div class="remember-me-forgot-pass-wrapper">
-        <mat-checkbox [checked]="remeberMe" (change)="rememberMeChanged($event.checked)"><span class="caption">Remember Me</span>
+        <mat-checkbox [checked]="rememberMe" (change)="rememberMeChanged($event.checked)"><span class="caption">Remember Me</span>
         </mat-checkbox>
         <a class="caption" href="/forgot-password" onclick="event.preventDefault(); this.children[0].click()"><i
           (click)="navigateTo('forgot-password')"></i>Forgot Password?</a>

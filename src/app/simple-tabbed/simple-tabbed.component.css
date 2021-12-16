@@ -4,11 +4,13 @@ blockquote {
   border-left: 3px solid #1976d2;
   font-style: italic;
 }
-.simple-wrapper{
+
+.simple-wrapper {
   display: block;
   padding: 24px;
 }
-@media (max-width: 959.9px){
+
+@media (max-width: 959.9px) {
   .simple-wrapper {
     padding-left: 16px;
     padding-right: 16px;
