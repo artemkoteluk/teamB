@@ -52,11 +52,11 @@
     overflow-y: auto;
 }
 
-.header-row {
+.month-view .header-row {
     display: flex;
 }
 
-.header-row>div {
+.month-view .header-row>div {
     flex: 1;
     text-align: center;
     font-weight: 550;
@@ -64,67 +64,29 @@
     padding-bottom: 12px;
 }
 
-.body-week-row {
+.month-view .body{
+    border: 1px solid #0000001f;
+    border-bottom: 0;
+}
+
+.month-view .row{
     display: flex;
 }
 
-.body-container {
-    display: flex;
-}
-
-.body {
-    flex: 1;
-}
-
-
-/* .body-week-row>*:first-child>.mat-divider {
-    border: 0;
-} */
-
-.body-day-cell {
+.month-view .cell {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 100px;
     position: relative;
+    border-bottom: 1px solid #0000001f;
 }
 
-.body-week-row>div {
-    flex: 1;
-    display: flex;
+.month-view .cell:not(:last-child) {
+    border-right: 1px solid #0000001f;
 }
 
-.day-num {
-    flex: 1;
-    text-align: end;
-    margin-top: 15px;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    min-height: 53px;
-    color: #000000de;
-    font-size: 1.2em;
-    font-weight: 400;
-    opacity: .5;
-}
-
-.current-day {
-    background: #e0e0e0;
-}
-
-.selected-day {
-    background: rgba(0, 0, 0, .04);
-}
-
-.current-day .day-num {
-    margin-top: 15px;
-    font-size: 1.9em;
-}
-
-.grayed-out .day-num {
-    opacity: .1;
-}
-
-.day-event-counter {
+.month-view .cell-event-counter {
     position: absolute;
     top: 0;
     left: 0;
@@ -144,12 +106,42 @@
     color: #fff;
 }
 
-.grayed-out .day-event-counter,
-.grayed-out .day-events {
+.month-view .grayed-out .cell-event-counter,
+.month-view .grayed-out .cell-events {
     opacity: .3;
 }
 
-.day-events {
+.month-view .cell-day-num {
+    flex: 1;
+    text-align: end;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    min-height: 53px;
+    color: #000000de;
+    font-size: 1.2em;
+    font-weight: 400;
+    opacity: .5;
+}
+
+.month-view .current-day {
+    background: #e0e0e0;
+}
+
+.month-view .selected-day {
+    background: rgba(0, 0, 0, .04);
+}
+
+.month-view .current-day .cell-day-num {
+    margin-top: 15px;
+    font-size: 1.9em;
+}
+
+.month-view .grayed-out .cell-day-num {
+    opacity: .1;
+}
+
+.month-view .cell-events {
     margin: 3px;
     line-height: 10px;
     display: flex;
@@ -158,8 +150,8 @@
     align-items: flex-end;
 }
 
-.day-event,
-.event-color {
+.month-view .cell-event,
+.month-view .event-color {
     line-height: 10px;
     background-color: #1e90ff;
     border-color: #d1e8ff;
@@ -171,7 +163,7 @@
     margin: 2px;
 }
 
-.events {
+.month-view .events {
     color: #fff;
     background-color: #555;
     box-shadow: inset 0 0 15px #00000080;
@@ -179,7 +171,7 @@
     margin-left: 1px;
 }
 
-.event {
+.month-view .event {
     background: white;
     color: #000000de;
     display: flex;
@@ -192,21 +184,21 @@
     box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
 }
 
-.event:not(:first-child) {
+.month-view .event:not(:first-child) {
     margin-top: 12px;
 }
 
-.event-name {
+.month-view .event-name {
     color: #000000de;
     flex: 1;
     padding: 12px;
 }
 
-.event-color {
+.month-view .event-color {
     margin-top: 5px;
 }
 
-.event .mat-icon-button {
+.month-view .event .mat-icon-button {
     color: #0000008a;
     height: 22px;
     width: 22px;
@@ -215,13 +207,245 @@
     margin-left: 10px;
 }
 
-.event .mat-icon {
+.month-view .event .mat-icon {
     transform: scale(0.85);
 }
 
-.header-row:hover,
-.body-day-cell:hover,
-.header-row>div:hover,
-.body-week-row:hover {
+.month-view .header-row:hover,
+.month-view .header-row>div:hover,
+.month-view .cell:hover,
+.month-view .row:hover {
     background: rgba(0, 0, 0, .04);
+}
+
+.week-view .body {
+    display: flex;
+    border: solid 1px #e1e1e1;
+    border-top: 0;
+}
+
+.week-view .header-row {
+    display: flex;
+    border: solid 1px #e1e1e1;
+    border-top: 0;
+}
+
+.week-view .header-column {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    color: #000000de;
+    border-left: 1px solid #e1e1e1;
+}
+
+.week-view .current-day {
+    background: #e0e0e0;
+}
+
+.week-view .selected-day,
+.week-view .header-column:hover {
+    background-color: #0000000a;
+}
+
+.week-view .header-column > b {
+    font-weight: 550;
+}
+
+.week-view .header-column > span {
+    color: #0000008a;
+    font-weight: 400;
+    opacity: .5;
+}
+
+.week-view .label-column {
+    width: 70px;
+}
+
+.week-view .label-column-hour,
+.week-view .column-hour {
+    height: 24px;
+    font-weight: 550;
+    font-size: 14px;
+    padding-top: 5px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.week-view .label-column-hour:not(:last-child),
+.week-view .column-hour:not(:last-child) {
+    border-bottom: thin dashed #e1e1e1;
+}
+
+.week-view .column-hour:nth-child(4n+3),
+.week-view .column-hour:nth-child(4n+4),
+.week-view .label-column-hour:nth-child(4n+3),
+.week-view .label-column-hour:nth-child(4n+4){
+    background: whitesmoke;
+}
+
+.week-view .column {
+    flex: 1;
+    border-left: 1px solid #e1e1e1;
+    position: relative;
+}
+
+.week-view .events {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.week-view .event-group {
+    flex: 1;
+    position: relative;
+}
+
+.week-view .event {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    overflow: hidden;
+    padding: 0 5px;
+    border: 1px solid #1e90ff;
+    background-color: #d1e8ff;
+    color: #000000de;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.week-view .event.starts-within-a-day {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.week-view .event.ends-within-a-day {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.week-view .label-column-hour:hover,
+.week-view .column-hour:hover{
+    background-color: #ededed;
+}
+
+.week-view .event-title {
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.week-view .event .mat-icon-button {
+    color: #0000008a;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.week-view .event .mat-icon {
+    transform: scale(0.85);
+}
+
+
+.day-view .body {
+    display: flex;
+    border: solid 1px #e1e1e1;
+    border-top: 0;
+}
+
+.day-view .label-column {
+    width: 70px;
+}
+
+.day-view .label-column-hour,
+.day-view .column-hour {
+    height: 24px;
+    font-weight: 550;
+    font-size: 14px;
+    padding-top: 5px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.day-view .label-column-hour:not(:last-child),
+.day-view .column-hour:not(:last-child) {
+    border-bottom: thin dashed #e1e1e1;
+}
+
+.day-view .column-hour:nth-child(4n+3),
+.day-view .column-hour:nth-child(4n+4),
+.day-view .label-column-hour:nth-child(4n+3),
+.day-view .label-column-hour:nth-child(4n+4){
+    background: whitesmoke;
+}
+
+.day-view .column {
+    flex: 1;
+    border-left: 1px solid #e1e1e1;
+    position: relative;
+}
+
+.day-view .events {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.day-view .event-group {
+    flex: 1;
+    position: relative;
+}
+
+.day-view .event {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    overflow: hidden;
+    padding: 0 5px;
+    border: 1px solid #1e90ff;
+    background-color: #d1e8ff;
+    color: #000000de;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.day-view .event.starts-within-a-day {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.day-view .event.ends-within-a-day {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.day-view .label-column-hour:hover,
+.day-view .column-hour:hover{
+    background-color: #ededed;
+}
+
+.day-view .event-title {
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.day-view .event .mat-icon-button {
+    color: #0000008a;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.day-view .event .mat-icon {
+    transform: scale(0.85);
 }

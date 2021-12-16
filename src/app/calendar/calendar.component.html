@@ -1,78 +1,127 @@
-<!-- workaround to remove padding from Olya's amazing code -->
-<link rel="stylesheet" href="data:text/css;charset=utf-8;base64,LnBhZ2UtY29udGVudCB7DQogICBwYWRkaW5nOiAwIWltcG9ydGFudDsNCn0NCi5wYWdlLWNvbnRlbnQgaDEsLnBhZ2UtY29udGVudCBoMyB7DQogICAgZGlzcGxheTogbm9uZTsNCn0=">
 <div class="main">
     <div class="calendar-header">
         <div class="header-content">
             <div class="header-text">{{displayed.header}}</div>
             <div class="header-buttons">
-                <button mat-icon-button (click)="prev()">
+                <button mat-icon-button (click)="prevClick()">
                     <mat-icon>navigate_before</mat-icon>
                 </button>
-                <button mat-icon-button (click)="next()">
+                <button mat-icon-button (click)="nextClick()">
                     <mat-icon>navigate_next</mat-icon>
                 </button>
-                <button mat-button>MONTH</button>
-                <button mat-button>WEEK</button>
-                <button mat-button>DAY</button>
+                <button mat-button (click)="changeView('month')">MONTH</button>
+                <button mat-button (click)="changeView('week')">WEEK</button>
+                <button mat-button (click)="changeView('day')">DAY</button>
             </div>
         </div>
     </div>
     <div class="calendar-body">
         <div class="scroller-wrapper">
             <div *ngIf="displayed.view === 'month'" class="month-view">
-                <div>
-                    <div class="header-row">
-                        <div>Sunday</div>
-                        <div>Monday</div>
-                        <div>Tuesday</div>
-                        <div>Wednesday</div>
-                        <div>Thursday</div>
-                        <div>Friday</div>
-                        <div>Saturday</div>
-                    </div>
+                <div class="header-row">
+                    <div>Sunday</div>
+                    <div>Monday</div>
+                    <div>Tuesday</div>
+                    <div>Wednesday</div>
+                    <div>Thursday</div>
+                    <div>Friday</div>
+                    <div>Saturday</div>
                 </div>
-                <div class="body-container">
-                    <div class="body">
-                        <div *ngFor="let week of displayed.formated">
-                            <mat-divider></mat-divider>
-                            <div class="body-week-row">
-                                <div *ngFor="let day of week">
-                                    <mat-divider vertical></mat-divider>
-                                    <div [class]="'body-day-cell' + (day.month !== displayed.month ? ' grayed-out': '' ) + (isCurrentDay(day) ? ' current-day':'') + (isSelected(day) ? ' selected-day':'')" (click)="dayClick(day, week)">
-                                        <div *ngIf="day.events.length > 0" class="day-event-counter">
-                                            {{day.events.length}}</div>
-                                        <div class="day-num">
-                                            {{ day.num }}
-                                        </div>
-                                        <div class="day-events">
-                                            <div *ngFor="let event of day.events" class="day-event" [style]="'background: '+event.color"></div>
-                                        </div>
-                                    </div>
+                <div class="body">
+                    <div *ngFor="let week of displayed.month.weeks" class="row-wrapper">
+                        <div class="row">
+                            <div *ngFor="let day of week.days" [class]="getCssClasses(day)" (click)="dayClick(day)">
+                                <div *ngIf="day.events.length > 0" class="cell-event-counter">
+                                    {{day.events.length}}
                                 </div>
-                            </div>
-                            <div *ngIf="displayed.events.length > 0 && week === selected.formatedWeek">
-                                <mat-divider></mat-divider>
-                                <div class="events">
-                                    <div class="event" *ngFor="let event of displayed.events">
-                                        <div class="event-color" [style]="'background: '+event.color"></div>
-                                        <div class="event-name">{{event.name}}</div>
-                                        <button mat-icon-button>
-                                            <mat-icon class="material-icons-outlined">edit</mat-icon>
-                                        </button>
-                                        <button mat-icon-button>
-                                            <mat-icon class="material-icons-outlined">delete</mat-icon>
-                                        </button>
-                                    </div>
+                                <div class="cell-day-num">
+                                    {{day.number}}
+                                </div>
+                                <div class="cell-events">
+                                    <div *ngFor="let event of day.events" class="cell-event"
+                                        [style]="'background: ' + event.secondaryColor"></div>
                                 </div>
                             </div>
                         </div>
-                        <mat-divider></mat-divider>
+                        <div class="events"
+                            *ngIf="eventsShown && selected.day.week === week && selected.day.events.length > 0">
+                            <div class="event" *ngFor="let event of selected.day.events">
+                                <div class="event-color" [style]="'background: '+event.secondaryColor"></div>
+                                <div class="event-name">{{event.name}}</div>
+                                <button mat-icon-button>
+                                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                </button>
+                                <button mat-icon-button>
+                                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <mat-divider vertical></mat-divider>
                 </div>
             </div>
-            <div *ngIf="displayed.view === 'week'" class="week-view">Week view</div>
-            <div *ngIf="displayed.view === 'day'" class="day-view">Day view</div>
+            <div *ngIf="displayed.view === 'week'" class="week-view">
+                <div class="header-row">
+                    <div class="label-column"></div>
+                    <div *ngFor="let day of displayed.week.days" [class]="getCssClasses(day)" (click)="dayClick(day)">
+                        <b>{{weekNames[day.numberInWeek]}}</b><br>
+                        <span>{{monthNames[day.month.number].substring(0,3)}} {{day.number}}</span>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="label-column">
+                        <div *ngFor="let name of hourNames" class="label-column-hour">
+                            {{name}}
+                        </div>
+                    </div>
+                    <div *ngFor="let day of displayed.week.days" class="column">
+                        <div *ngFor="let name of hourNames" class="column-hour" (click)="dayClick(day)"></div>
+                        <div class="events">
+                            <div *ngFor="let eventGroup of groupOverlappingEvents(day)" class="event-group">
+                                <div *ngFor="let event of eventGroup" class="event"
+                                    [style]="getEventPositionAndSize(event, day)"
+                                    [class]="getEventCssClasses(event, day)">
+                                    <span class="event-title">{{event?.name}}</span>
+                                    <button mat-icon-button>
+                                        <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button>
+                                        <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isCurrentDay(day)" [style]="getCurrentTimeOffset()"></div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="displayed.view === 'day'" class="day-view">
+                <div class="body">
+                    <div class="label-column">
+                        <div *ngFor="let name of hourNames" class="label-column-hour">
+                            {{name}}
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div *ngFor="let name of hourNames" class="column-hour" (click)="dayClick(displayed.day)"></div>
+                        <div class="events">
+                            <div *ngFor="let eventGroup of groupOverlappingEvents(displayed.day)" class="event-group">
+                                <div *ngFor="let event of eventGroup" class="event"
+                                    [style]="getEventPositionAndSize(event, displayed.day)"
+                                    [class]="getEventCssClasses(event, displayed.day)">
+                                    <span class="event-title">{{event?.name}}</span>
+                                    <button mat-icon-button>
+                                        <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button>
+                                        <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isCurrentDay(displayed.day)" [style]="getCurrentTimeOffset()"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
