@@ -1,15 +1,23 @@
-<div class="panel" [@slideInOut]="animationState" (@slideInOut.start)="onAnimationStart($event)" (@slideInOut.done)="onAnimationDone($event)">
-  <h3><mat-icon>settings</mat-icon> Configuration</h3>
+<div class="panel" [@slideInOut]="animationState" (@slideInOut.start)="onAnimationStart($event)"
+     (@slideInOut.done)="onAnimationDone($event)">
+  <h3>
+    <mat-icon>settings</mat-icon>
+    Configuration
+  </h3>
   <mat-list>
     <div mat-subheader>THEME STYLE</div>
 
     <mat-list-item class="theme-item" *ngFor="let ts of themeSettings; index as i" (click)="changeTheme(i)">
-      <div mat-line><div class="theme-item-btn" [style.background-color]="ts.active?ts.activeBtnColor:ts.nonActiveBtnColor"><mat-icon [style.color]="ts.iconColor">{{ts.active?'done':''}}</mat-icon></div> <span>{{ts.name}}</span></div>
+      <div mat-line>
+        <div class="theme-item-btn" [style.background-color]="ts.active?ts.activeBtnColor:ts.nonActiveBtnColor">
+          <mat-icon [style.color]="ts.iconColor">{{ts.active ? 'done' : ''}}</mat-icon>
+        </div>
+        <span>{{ts.name}}</span></div>
     </mat-list-item>
 
 
     <mat-divider></mat-divider>
-<!--    =====================================================================================-->
+
     <div mat-subheader>Toolbar</div>
 
     <mat-list-item>
@@ -26,9 +34,7 @@
     </mat-list-item>
 
 
-
     <mat-divider></mat-divider>
-    <!--    =====================================================================================-->
     <div mat-subheader>NAVIGATION</div>
     <mat-list-item>
       <mat-slide-toggle>Open</mat-slide-toggle>
@@ -44,12 +50,15 @@
 
     <div mat-subheader>OPTIONS</div>
     <section class="example-section">
-      <p><mat-checkbox>Collapsed</mat-checkbox></p>
-      <p><mat-checkbox>Show User Panel</mat-checkbox></p>
+      <p>
+        <mat-checkbox>Collapsed</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox>Show User Panel</mat-checkbox>
+      </p>
     </section>
 
     <mat-divider></mat-divider>
-    <!--    =====================================================================================-->
     <div mat-subheader>Footer</div>
     <mat-list-item>
       <mat-slide-toggle>Visible</mat-slide-toggle>

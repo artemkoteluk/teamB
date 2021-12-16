@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router, Routes} from "@angular/router";
 
 @Component({
@@ -9,13 +9,11 @@ import {NavigationEnd, Router, Routes} from "@angular/router";
 export class MainComponent implements OnInit {
 
 
-
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
-
 
 
 }

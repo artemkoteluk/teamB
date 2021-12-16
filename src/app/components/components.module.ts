@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {ComponentsComponent, ExampleDialog} from "./components.component";
 import {MatListModule} from "@angular/material/list";
@@ -22,9 +22,10 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatDialogModule} from "@angular/material/dialog";
 
-const routes:Routes=[
-  {path:'',component: ComponentsComponent}
+const routes: Routes = [
+  {path: '', component: ComponentsComponent}
 ]
 
 @NgModule({
@@ -53,6 +54,8 @@ const routes:Routes=[
     MatSliderModule,
     MatSlideToggleModule,
     MatTooltipModule,
+    MatDialogModule,
   ]
 })
-export class ComponentsModule { }
+export class ComponentsModule {
+}

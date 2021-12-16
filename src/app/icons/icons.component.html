@@ -1,29 +1,27 @@
-<!-- workaround to remove padding from Olya's amazing code -->
-<link rel="stylesheet" href="data:text/css;charset=utf-8;base64,LnBhZ2UtY29udGVudCBoMyB7DQogICAgbWFyZ2luLWJvdHRvbTogMCFpbXBvcnRhbnQ7DQp9DQoNCi5wYWdlLWNvbnRlbnQgew0KICAgIHBhZGRpbmc6IDMwcHggMjBweCFpbXBvcnRhbnQ7DQogICAgYmFja2dyb3VuZC1jb2xvcjogI2ZhZmFmYTsNCn0NCg0KLm1haW4tY29udGFpbmVyIC5iYWNrZ3JvdW5kIHsNCiAgICBkaXNwbGF5OiBub25lIWltcG9ydGFudDsNCn0=">
 <div class="left">
-    Icons are a neat way to add some image to text-only lists.
-    <br>
-    <br> Fury comes with a great variety of icons from the official Material Icons font and using them can't be simpler.
+  Icons are a neat way to add some image to text-only lists.
+  <br>
+  <br> Fury comes with a great variety of icons from the official Material Icons font and using them can't be simpler.
 </div>
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Icon Preview</mat-card-title>
-        <mat-card-subtitle>Hundreds of icons ready to be used.</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-form-field appearance="fill">
-            <mat-label>Search</mat-label>
-            <input type="text" matInput #searchRef>
-        </mat-form-field>
-        <div class="icons">
-            <div class="icon-container" *ngFor="let icon of icons.filter(searchFilter(searchRef.value))">
-                <div class="icon">
-                    <mat-icon class="material-icons-outlined">{{icon}}</mat-icon>
-                </div>
-                <div class="icon-text">
-                    {{icon}}
-                </div>
-            </div>
+  <mat-card-header>
+    <mat-card-title>Icon Preview</mat-card-title>
+    <mat-card-subtitle>Hundreds of icons ready to be used.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input type="text" matInput #searchRef>
+    </mat-form-field>
+    <div class="icons">
+      <div class="icon-container" *ngFor="let icon of icons.filter(searchFilter(searchRef.value))">
+        <div class="icon">
+          <mat-icon class="material-icons-outlined">{{icon}}</mat-icon>
         </div>
-    </mat-card-content>
+        <div class="icon-text">
+          {{icon}}
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>

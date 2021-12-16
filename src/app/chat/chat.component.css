@@ -82,6 +82,11 @@
 .foreground .chat-content {
     overflow-y: auto;
     padding: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .foreground .message-box {
@@ -130,4 +135,7 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+.mat-drawer{
+  overflow-y: auto;
 }

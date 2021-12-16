@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-form-elements',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-elements.component.css']
 })
 export class FormElementsComponent implements OnInit {
- hide=true;
-  constructor() { }
+  public hide: boolean = true;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

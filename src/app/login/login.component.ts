@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,25 +8,32 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  LoginForm;
-  hide = true;
-  remeberMe = false;
+  public LoginForm: FormGroup;
+  public hide: boolean = true;
+  public rememberMe: boolean = false;
+
   constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.LoginForm = this.formBuilder.group({
+    this.LoginForm = this.loginFormCreate();
+  }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.navigateTo('main/dashboard')
+  }
+
+  public navigateTo(path: string): void {
+    this.router.navigate([path])
+  }
+
+  private loginFormCreate(): FormGroup {
+    return this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
 
-  ngOnInit(): void {
-  }
-  onSubmit(): void {
-    this.router.navigate(['main/dashboard'])
-  }
-  navigateTo(path: string) {
-    this.router.navigate([path])
-  }
-  rememberMeChanged(check: boolean) {
-    console.log('Remember me: ' + check);
+  public rememberMeChanged(check: boolean): void {
   }
 }

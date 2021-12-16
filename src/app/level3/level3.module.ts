@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from "@angular/router";
-import { MatCardModule } from "@angular/material/card";
-import { Level3Component } from './level3.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from "@angular/router";
+import {MatCardModule} from "@angular/material/card";
+import {Level3Component} from './level3.component';
 
 const routes: Routes = [
   {
@@ -19,4 +19,5 @@ const routes: Routes = [
     MatCardModule
   ]
 })
-export class Level3Module { }
+export class Level3Module {
+}

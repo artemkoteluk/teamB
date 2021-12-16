@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {SimpleComponent} from "./simple.component";
 import {RouterModule, Routes} from "@angular/router";
 
-const routes:Routes=[
-  {path:'',component:SimpleComponent}]
+const routes: Routes = [
+  {path: '', component: SimpleComponent}]
 
 @NgModule({
   declarations: [SimpleComponent],
@@ -13,4 +13,5 @@ const routes:Routes=[
     RouterModule.forChild(routes)
   ]
 })
-export class SimpleModule { }
+export class SimpleModule {
+}

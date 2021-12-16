@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {CardComponent} from "./card.component";
 import {MatCardModule} from "@angular/material/card";
 
-const routes:Routes=[
-  {path:'',component:CardComponent}]
+const routes: Routes = [
+  {path: '', component: CardComponent}]
 
 @NgModule({
   declarations: [CardComponent],
@@ -16,4 +16,5 @@ const routes:Routes=[
 
   ]
 })
-export class CardModule { }
+export class CardModule {
+}

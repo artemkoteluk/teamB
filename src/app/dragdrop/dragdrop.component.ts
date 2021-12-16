@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {DragDropInterface} from "./datainterface";
+import {done, todo} from "./dragdropdata";
 
 @Component({
   selector: 'app-dragdrop',
@@ -8,26 +10,18 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class DragdropComponent implements OnInit {
 
-  constructor() { }
+  public todo: DragDropInterface[] = todo;
+
+  public done: DragDropInterface[] = done;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  todo = [
-    {task:'Have fun at work',time:'next week'},
-    {task:'Interview with Nikita',time:'next week'},
-    {task:'Interview scheduled with Frank',time:'in 2 days'},
-    {task:'Party at Rakesh\' house',time:'this weekend'},
-  ];
 
-  done = [
-    {task:'Talk to Jennifer',time:'next week'},
-    {task:'Meeting with Denis',time:'next week'},
-    {task:'Meet up with the new coworkers',time:'in 2 days'},
-    {task:'Get stuff done',time:'this weekend'},
-  ];
-
-  drop(event: CdkDragDrop<{task:string, time: string}[]>) {
+  public drop(event: CdkDragDrop<{ task: string, time: string }[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

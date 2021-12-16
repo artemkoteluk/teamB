@@ -17,8 +17,11 @@
     <div *ngFor="let group of appRoutes; let i = index">
       <p *ngIf="showFiller" class="route-group-header">{{group.groupName}}</p>
       <div *ngFor="let rout of group.groupRoutes">
-        <p *ngIf="!rout.children.length" class="p-route {{showFiller? '':'p-resized'}}" (click)="breadcrumbs(rout.routeName, rout.path)">
-          <mat-icon class="{{showFiller? 'icon-resized':''}}">{{rout.icon}}</mat-icon><span *ngIf="showFiller">{{rout.routeName}}</span><span *ngIf="showFiller && rout.badge" class="badge badge-pos">{{rout.badge}}</span></p>
+        <p *ngIf="!rout.children.length" class="p-route {{showFiller? '':'p-resized'}}"
+           (click)="breadcrumbs(rout.routeName, rout.path)">
+          <mat-icon class="{{showFiller? 'icon-resized':''}}">{{rout.icon}}</mat-icon>
+          <span *ngIf="showFiller">{{rout.routeName}}</span><span *ngIf="showFiller && rout.badge"
+                                                                  class="badge badge-pos">{{rout.badge}}</span></p>
 
         <p *ngIf="rout.children.length && !showFiller" class="p-route {{showFiller? '':'p-resized'}}">
           <mat-icon class="{{showFiller? 'icon-resized':''}}">{{rout.icon}}</mat-icon>
@@ -26,12 +29,16 @@
         <mat-expansion-panel *ngIf="rout.children.length && showFiller">
           <mat-expansion-panel-header>
             <mat-panel-title style="color: white" class="p-route {{showFiller? '':'p-resized'}}">
-              <mat-icon class="{{showFiller? 'icon-resized':''}}">{{rout.icon}}</mat-icon><span *ngIf="showFiller">{{rout.routeName}}</span>
+              <mat-icon class="{{showFiller? 'icon-resized':''}}">{{rout.icon}}</mat-icon>
+              <span *ngIf="showFiller">{{rout.routeName}}</span>
             </mat-panel-title>
             <span *ngIf="showFiller && rout.badge" class="badge" style="margin-right: 10px">{{rout.badge}}</span>
           </mat-expansion-panel-header>
 
-          <p *ngFor="let childRout of rout.children" class="p-route" (click)="breadcrumbs(childRout.routeName, childRout.path)"><span class="expanded-link expanded-icon">{{childRout.icon}}</span><span class="expanded-link">{{childRout.routeName}}</span></p>
+          <p *ngFor="let childRout of rout.children" class="p-route"
+             (click)="breadcrumbs(childRout.routeName, childRout.path)"><span
+            class="expanded-link expanded-icon">{{childRout.icon}}</span><span
+            class="expanded-link">{{childRout.routeName}}</span></p>
         </mat-expansion-panel>
       </div>
 
@@ -41,7 +48,8 @@
       <mat-expansion-panel *ngIf="showFiller && i==appRoutes.length-1">
         <mat-expansion-panel-header>
           <mat-panel-title style="color: white" class="p-route {{showFiller? '':'p-resized'}}">
-            <mat-icon class="{{showFiller? 'icon-resized':''}}">menu</mat-icon><span *ngIf="showFiller">Multi-Level Menu</span>
+            <mat-icon class="{{showFiller? 'icon-resized':''}}">menu</mat-icon>
+            <span *ngIf="showFiller">Multi-Level Menu</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
 
@@ -59,7 +67,9 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <p class="p-route {{showFiller? '':'p-resized'}}" (click)="breadcrumbs('Level 3 - Wow such deep!', 'main/level1/level2/level3')"><span class="expanded-link expanded-icon">L3</span><span class="expanded-link">Level 3</span></p>
+            <p class="p-route {{showFiller? '':'p-resized'}}"
+               (click)="breadcrumbs('Level 3 - Wow such deep!', 'main/level1/level2/level3')"><span
+              class="expanded-link expanded-icon">L3</span><span class="expanded-link">Level 3</span></p>
           </mat-expansion-panel>
         </mat-expansion-panel>
       </mat-expansion-panel>

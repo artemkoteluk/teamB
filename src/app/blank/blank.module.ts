@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from "@angular/router";
-import { BlankComponent } from './blank.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from "@angular/router";
+import {BlankComponent} from './blank.component';
 
 const routes: Routes = [
   {
@@ -17,4 +17,5 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ]
 })
-export class BlankModule { }
+export class BlankModule {
+}

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from "@angular/router";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from "@angular/router";
 import {ComingSoonComponent} from './coming-soon.component';
 import {MatCardModule} from '@angular/material/card';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -38,4 +38,5 @@ const routes: Routes = [
     MatIconModule
   ]
 })
-export class ComingSoonModule { }
+export class ComingSoonModule {
+}

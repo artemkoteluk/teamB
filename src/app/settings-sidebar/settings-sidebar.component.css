@@ -1,7 +1,8 @@
-/deep/.sidebar-backdrop {
+/deep/ .sidebar-backdrop {
   background-color: rgba(255, 255, 255, 0) !important;
 }
-.panel{
+
+.panel {
   box-shadow: 0 2px 8px #0006;
   padding: 16px;
 }
@@ -16,18 +17,20 @@
   margin: 5px;
 }
 
-section{
+section {
   padding: 0 16px;
 }
 
-.theme-item{
+.theme-item {
   cursor: pointer;
   border-radius: 8px;
 }
-.theme-item:hover{
+
+.theme-item:hover {
   background-color: #F0F0F0;
 }
-.theme-item-btn{
+
+.theme-item-btn {
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -36,14 +39,16 @@ section{
   text-align: center;
   box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
 }
-.theme-item .mat-line{
+
+.theme-item .mat-line {
   line-height: 40px;
 }
-mat-icon{
+
+mat-icon {
   position: relative;
   top: 7px;
 }
 
-/deep/.mat-line{
+/deep/ .mat-line {
   padding: 5px 0 !important;
 }

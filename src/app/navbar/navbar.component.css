@@ -1,45 +1,55 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.mat-toolbar{
+
+.mat-toolbar {
   background-color: #FFFFFF;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0, 0, 0, .12);
   padding: 0 0 0 15px;
 }
+
 button.toolbar-btn {
   border-radius: unset;
   height: 64px;
   width: fit-content;
 }
-button.b-small{
+
+button.b-small {
   width: 64px;
 }
-button.b-left{
-  border-left: 1px solid rgba(0,0,0,.12);
+
+button.b-left {
+  border-left: 1px solid rgba(0, 0, 0, .12);
 }
-button.b-right{
-  border-right: 1px solid rgba(0,0,0,.12);
+
+button.b-right {
+  border-right: 1px solid rgba(0, 0, 0, .12);
 }
+
 mat-toolbar button:hover {
   background-color: #F5F5F5;
 }
-.menu-btn{
+
+.menu-btn {
   padding: 0 20px;
 }
-.menu-btn img{
+
+.menu-btn img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 20px;
 }
-.menu-btn mat-icon{
+
+.menu-btn mat-icon {
   margin-left: 20px;
 }
-/deep/.mat-menu-panel.logout-menu {
+
+/deep/ .mat-menu-panel.logout-menu {
   width: 191px;
 }
 
-.mat-toolbar>div{
+.mat-toolbar > div {
   box-sizing: border-box;
   width: 30%;
   min-width: 200px;
@@ -49,48 +59,59 @@ mat-toolbar button:hover {
   padding: 0 0 5px 0 !important;
   width: 100% !important;
 }
+
 ::ng-deep .mat-form-field-appearance-outline {
-  margin-top:-8px;
+  margin-top: -8px;
   border: none;
   width: 100%;
 }
-::ng-deep label.ng-star-inserted { transform: translateY(-0.59375em) scale(.7) !important; }
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper{
+
+::ng-deep label.ng-star-inserted {
+  transform: translateY(-0.59375em) scale(.7) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
   padding-bottom: 0 !important;
   margin-top: 10px !important;
   background-color: #F5F5F5;
 }
+
 ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
   opacity: 0;
 }
 
-.example-form mat-icon{
+.example-form mat-icon {
   margin-right: 15px;
 }
 
-.settings-btn{
+.settings-btn {
   background-color: #009688;
   position: absolute;
   right: 50px;
   bottom: 50px;
   z-index: 100;
 }
+
 .mat-card-header {
   margin: 15px 15px 0 15px;
 }
-.mat-card-header .mat-card-title{
+
+.mat-card-header .mat-card-title {
   font-size: 18px !important;
   font-weight: normal !important;
 }
-.notification-item{
+
+.notification-item {
   float: right;
   text-align: center;
   position: relative;
   top: 4px;
 }
-.notification-item mat-icon{
+
+.notification-item mat-icon {
   margin: auto;
 }
-/deep/.mat-card-header-text{
+
+/deep/ .mat-card-header-text {
   flex-grow: 1;
 }

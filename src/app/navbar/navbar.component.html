@@ -8,7 +8,7 @@
         <mat-autocomplete #autoGroup="matAutocomplete">
 
           <mat-optgroup *ngFor="let group of routeGroupOptions | async" [label]="group.groupName">
-           <mat-option *ngFor="let route of group.routes" [value]="route.name" (click)="navbarNavigate(route.route)">
+            <mat-option *ngFor="let route of group.routes" [value]="route.name" (click)="navbarNavigate(route.route)">
               {{route.name}}
             </mat-option>
           </mat-optgroup>
@@ -21,25 +21,39 @@
 
   <span class="example-spacer"></span>
 
-  <button class="toolbar-btn b-left b-small" mat-icon-button (click)="Fullscreen()"><mat-icon>fullscreen</mat-icon></button>
-  <button class="toolbar-btn b-left b-small" mat-icon-button [matMenuTriggerFor]="header_menu1"><mat-icon matBadge="{{notifications.length?notifications.length:''}}">notifications_active</mat-icon></button>
-  <button class="toolbar-btn b-left menu-btn" mat-icon-button [matMenuTriggerFor]="header_menu2" (menuOpened)="menuToggle()" (menuClosed)="menuToggle()"><img src="assets/images/Pikachu.png" alt="logo">Team B<mat-icon>keyboard_arrow_{{menuOpened?'up':'down'}}</mat-icon></button>
-  <button class="toolbar-btn b-left b-small" mat-icon-button (click)="openRightSidebar(true)"><mat-icon>format_align_right</mat-icon></button>
+  <button class="toolbar-btn b-left b-small" mat-icon-button (click)="Fullscreen()">
+    <mat-icon>fullscreen</mat-icon>
+  </button>
+  <button class="toolbar-btn b-left b-small" mat-icon-button [matMenuTriggerFor]="header_menu1">
+    <mat-icon matBadge="{{notifications.length?notifications.length:''}}">notifications_active</mat-icon>
+  </button>
+  <button class="toolbar-btn b-left menu-btn" mat-icon-button [matMenuTriggerFor]="header_menu2"
+          (menuOpened)="menuToggle()" (menuClosed)="menuToggle()"><img src="assets/images/Pikachu.png" alt="logo">Team B
+    <mat-icon>keyboard_arrow_{{menuOpened ? 'up' : 'down'}}</mat-icon>
+  </button>
+  <button class="toolbar-btn b-left b-small" mat-icon-button (click)="openRightSidebar(true)">
+    <mat-icon>format_align_right</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-menu #header_menu1="matMenu" xPosition="before" yPosition="below">
   <mat-card-header>
     <mat-card-title>Notifications</mat-card-title>
     <mat-card-subtitle>You have {{notifications.length}} notifications</mat-card-subtitle>
-    <button mat-icon-button (click)="$event.stopPropagation();"><mat-icon>settings</mat-icon></button>
+    <button mat-icon-button (click)="$event.stopPropagation();">
+      <mat-icon>settings</mat-icon>
+    </button>
   </mat-card-header>
 
   <div *ngFor="let notification of notifications; index as i;">
     <mat-divider></mat-divider>
     <button mat-menu-item (click)="$event.stopPropagation();">
-      <mat-icon [ngStyle]="{'color': notification.isActive ? 'black' : ''}">notifications{{notification.isActive?'_active':''}}</mat-icon>
+      <mat-icon [ngStyle]="{'color': notification.isActive ? 'black' : ''}">
+        notifications{{notification.isActive ? '_active' : ''}}</mat-icon>
       <span [ngStyle]="{'color': notification.isActive ? 'black' : '#707070'}">{{notification.text}}</span>
-      <button mat-icon-button class="notification-item" (click)="removeNotification($event, i)"><mat-icon>close</mat-icon></button>
+      <button mat-icon-button class="notification-item" (click)="removeNotification($event, i)">
+        <mat-icon>close</mat-icon>
+      </button>
     </button>
   </div>
 
@@ -70,4 +84,6 @@
   </button>
 </mat-menu>
 
-<button class="settings-btn" mat-fab color="warn" (click)="openRightSidebar(false)"><mat-icon>settings</mat-icon></button>
+<button class="settings-btn" mat-fab color="warn" (click)="openRightSidebar(false)">
+  <mat-icon>settings</mat-icon>
+</button>

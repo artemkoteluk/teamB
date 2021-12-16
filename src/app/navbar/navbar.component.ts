@@ -6,17 +6,9 @@ import {map, startWith} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {SidebarService} from "../right-sidebar/sidebar.service";
 import {OverlayRef} from "@angular/cdk/overlay";
-
-export interface Notification {
-  id:number,
-  text:string,
-  time:string,
-  isActive: boolean
-}
-export interface RouteGroup {
-  groupName: string;
-  routes: {name: string, route: string}[];
-}
+import {NotificationInterface} from "./notification-interface";
+import {RouteGroupInterface} from "./routegroup-interface";
+import {notifications, routeGroups} from "./navbar-data";
 
 
 @Component({
@@ -26,62 +18,17 @@ export interface RouteGroup {
 })
 export class NavbarComponent implements OnInit {
 
-  elem: any;
-  menuOpened=false;
-  notifications: Array<Notification> = [
-    {
-      id: 0,
-      text: 'This is a notification',
-      time: 'few sec ago',
-      isActive: true
-    },
-    {
-      id: 4,
-      text: 'User bought your template',
-      time: '23 min ago',
-      isActive: true
-    },
-    {
-      id: 2,
-      text: 'Server crashed',
-      time: 'an hour ago',
-      isActive: true
-    },
-    {
-      id: 3,
-      text: 'New user registered',
-      time: '6 hours ago',
-      isActive: false
-    },
-  ];
-  routeForm: FormGroup = this._formBuilder.group({
+  public elem: HTMLElement;
+  public menuOpened: boolean = false;
+  public notifications: Array<NotificationInterface> = notifications;
+  public routeForm: FormGroup = this._formBuilder.group({
     routeGroup: '',
   });
-  routeGroups: RouteGroup[] = [
-    {
-      groupName: 'Recently Visited',
-      routes: [
-        {name: 'All-In-One-Table', route: '/main/table'},
-        {name: 'Form Wizard', route: '/main/form-wizard'},
-        {name: 'Inbox', route: '/main/inbox'},
-        {name: 'WYSIWYG Editor', route: '/main/editor'},
-        {name: 'Google Maps', route: '/main/google-map'}
-      ],
-    },
-    {
-      groupName: 'Frequently Visited',
-      routes: [
-        {name: 'Form Elements', route: '/main/form-elements'},
-        {name: 'Form Wizard',  route: '/main/form-wizard'},
-        {name: 'WYSIWYG Editor',  route: '/main/editor'},
-        {name: 'Google Maps', route: '/main/google-map'},
-        {name: 'Material Dialog', route: '/main/components'},
-      ],
-    },
-    ]
-  routeGroupOptions: Observable<RouteGroup[]>;
+  private routeGroups: RouteGroupInterface[] = routeGroups;
+  public routeGroupOptions: Observable<RouteGroupInterface[]>;
 
-  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder, private router: Router, private sidebarService: SidebarService) { }
+  constructor(@Inject(DOCUMENT) private document: any, private _formBuilder: FormBuilder, private router: Router, private sidebarService: SidebarService) {
+  }
 
   ngOnInit(): void {
     this.elem = document.documentElement;
@@ -91,7 +38,7 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  private _filter( value: string): any[] {
+  private _filter(value: string): any[] {
     const filterValue = value.toLowerCase();
     return this.routeGroups.map((e: any) => {
       // console.log(e.routes.filter(item => item.name.toLowerCase().includes(filterValue)));
@@ -99,31 +46,31 @@ export class NavbarComponent implements OnInit {
     }).filter(group => group.routes.length > 0);
   };
 
-  Fullscreen() {
+  public Fullscreen(): void {
     this.elem.requestFullscreen();
   }
 
-  menuToggle() {
-    this.menuOpened=!this.menuOpened;
+  public menuToggle(): void {
+    this.menuOpened = !this.menuOpened;
   }
 
-  removeNotification($event: MouseEvent, i: number) {
+  public removeNotification($event: MouseEvent, i: number): void {
     $event.stopPropagation();
     this.notifications.splice(i, 1);
   }
 
-  markRead($event: MouseEvent) {
+  public markRead($event: MouseEvent): void {
     $event.stopPropagation();
     for (let n of this.notifications) {
-      n.isActive=false;
+      n.isActive = false;
     }
   }
 
-  navbarNavigate(route: string) {
+  public navbarNavigate(route: string): void {
     this.router.navigate([route]);
   }
 
-  openRightSidebar(mode: boolean) {
+  public openRightSidebar(mode: boolean): void {
     const sidebarRef: OverlayRef = this.sidebarService.open(mode);
   }
 }
